@@ -1,115 +1,176 @@
+import 'dart:async';
+import 'dart:io';
+import 'package:fk_user_agent/fk_user_agent.dart';
+import 'package:my_gallery/common/singleton/singleton_manager.dart';
+import 'package:my_gallery/modules/entrance/app.dart';
+import 'package:my_gallery/common/tools/umeng/umeng_tool.dart';
+import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:umeng_plugin/umeng_plugin.dart';
+import 'common/config/config.dart';
+import 'common/network/error_code.dart';
+import 'modules/entrance/user_privacy_app.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+void reportErrorAndLog(FlutterErrorDetails details) {
+  ///上报错误和日志逻辑
+  /// FlutterError.dumpErrorToConsole(details);
+  UmengPlugin.reportError(details.toString());
+  if (!Config.DEBUG) {
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
+FlutterErrorDetails makeDetails(Object obj, StackTrace stack) {
+  // 构建错误信息
+  return FlutterErrorDetails(stack: stack, exception: obj);
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+
+///
+/// @description 入口函数
+/// @param 
+/// @return 
+/// @author waitwalker
+/// @time 4/22/21 10:31 AM
+///
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+
+  // 先判断用户有没有同意用户隐私协议
+  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  bool? isAgreed = sharedPreferences.getBool("userPrivacy");
+  print("isAgreed:$isAgreed");
+
+  if (isAgreed == null) {
+    runApp(UserPrivacyApp());
+  } else {
+
+    FlutterError.onError = (FlutterErrorDetails details) {
+      reportErrorAndLog(details);
+    };
+
+    /// 初始化友盟统计
+    await UmengTool.init();
+
+    /// event 监听事件
+    ErrorCode.eventBus.on<dynamic>().listen((event) {
+      errorHandleFunction(event.code, event.message);
     });
-  }
 
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+
+    DeviceInfoPlugin plugin = DeviceInfoPlugin();
+    if (Platform.isIOS) {
+      IosDeviceInfo iosDeviceInfo = await plugin.iosInfo;
+      SingletonManager.sharedInstance!.deviceName = iosDeviceInfo.name;
+      SingletonManager.sharedInstance!.deviceType = iosDeviceInfo.model;
+      SingletonManager.sharedInstance!.systemName = iosDeviceInfo.systemName;
+      SingletonManager.sharedInstance!.systemVersion = iosDeviceInfo.systemVersion;
+      if (iosDeviceInfo.model == "iPad") {
+        SingletonManager.sharedInstance!.isPadDevice = true;
+        runZonedGuarded(() => runApp(App()), (Object obj, StackTrace stack){
+          var details = makeDetails(obj, stack);
+          reportErrorAndLog(details);
+        });
+      } else {
+        // debugPaintSizeEnabled = true;
+        SingletonManager.sharedInstance!.isPadDevice = false;
+        runZonedGuarded(() => runApp(App()), (Object obj, StackTrace stack){
+          var details = makeDetails(obj, stack);
+          reportErrorAndLog(details);
+        });
+      }
+
+    } else if (Platform.isAndroid){
+      AndroidDeviceInfo androidDeviceInfo = await plugin.androidInfo;
+      SingletonManager.sharedInstance!.deviceName = androidDeviceInfo.brand;
+      SingletonManager.sharedInstance!.deviceType = androidDeviceInfo.model;
+      SingletonManager.sharedInstance!.systemName = "Android";
+      SingletonManager.sharedInstance!.systemVersion = androidDeviceInfo.version.release;
+      MethodChannel channel = MethodChannel("com.etiantian/device_type");
+      var result = await channel.invokeMethod("deviceType") ?? false;
+      print("device is pad:$result");
+      bool isTab = result["isTab"];
+      bool? isGuanKong = result["isGuanKong"];
+      SingletonManager.sharedInstance!.isGuanKong = isGuanKong;
+      if (isTab) {
+        SingletonManager.sharedInstance!.isPadDevice = true;
+        runZonedGuarded(() => runApp(App()), (Object obj, StackTrace stack){
+          var details = makeDetails(obj, stack);
+          reportErrorAndLog(details);
+        });
+      } else {
+        SingletonManager.sharedInstance!.isPadDevice = false;
+        runZonedGuarded(() => runApp(App()), (Object obj, StackTrace stack){
+          var details = makeDetails(obj, stack);
+          reportErrorAndLog(details);
+        });
+      }
+    }
+  }
+}
+
+// Platform messages are asynchronous, so we initialize in an async method.
+Future<void> initUserAgentState() async {
+  String? userAgent, webViewUserAgent;
+  // Platform messages may fail, so we use a try/catch PlatformException.
+  try {
+    userAgent = await FkUserAgent.getPropertyAsync('userAgent');
+    await FkUserAgent.init();
+    webViewUserAgent = FkUserAgent.webViewUserAgent;
+    print('''
+      applicationVersion => ${FkUserAgent.getProperty('applicationVersion')}
+      systemName         => ${FkUserAgent.getProperty('systemName')}
+      userAgent          => $userAgent
+      webViewUserAgent   => $webViewUserAgent
+      packageUserAgent   => ${FkUserAgent.getProperty('packageUserAgent')}
+      ''');
+  } on PlatformException {
+    userAgent = webViewUserAgent = '<error>';
+  }
+}
+
+///
+/// @name errorHandleFunction
+/// @description event 监听消息
+/// @parameters
+/// @return
+/// @author waitwalker
+/// @date 2020-01-14
+///
+errorHandleFunction(int? code, message) {
+  switch (code) {
+    case ErrorCode.NETWORK_ERROR:
+      Fluttertoast.showToast(msg: '网络错误');
+      break;
+    case 401:
+      Fluttertoast.showToast(msg: '账号在别处登录或者登录已过期,请重新登录(401)');
+      break;
+    case 403:
+      Fluttertoast.showToast(msg: '禁止访问');
+      break;
+    case 404:
+      Fluttertoast.showToast(msg: '网络错误404');
+      break;
+    case 413:
+      Fluttertoast.showToast(msg: '上传文件太大');
+      break;
+    case ErrorCode.NETWORK_TIMEOUT:
+      //超时
+      Fluttertoast.showToast(msg: '网络超时');
+      break;
+    case ErrorCode.EXPIRED:
+      //超时
+      // Fluttertoast.showToast(msg: 'xxx');
+      break;
+    default:
+      // Fluttertoast.showToast(msg: '网络请求失败');
+      break;
   }
 }
