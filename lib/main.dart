@@ -41,7 +41,6 @@ FlutterErrorDetails makeDetails(Object obj, StackTrace stack) {
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-
   // 先判断用户有没有同意用户隐私协议
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   bool? isAgreed = sharedPreferences.getBool("userPrivacy");

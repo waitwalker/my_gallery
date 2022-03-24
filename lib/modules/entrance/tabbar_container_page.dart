@@ -124,7 +124,8 @@ class _TabBarHomePageState extends State<TabBarHomePage>
               ),
             ],
           ),
-        ).then((value) => value as bool);
+        ).then((value) => value as bool) ??
+        false as Future<bool>;
   }
 
   final PageController _controller = PageController(initialPage: 0);

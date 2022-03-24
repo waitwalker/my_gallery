@@ -10,7 +10,7 @@ MyCourseModel _$MyCourseModelFromJson(Map<String, dynamic> json) {
   return MyCourseModel(
       code: json['code'] as num?,
       msg: json['msg'] as String?,
-      data: (json['data'])
+      data: (json['data'] )
           ?.map((e) =>
               e == null ? null : DataEntity.fromJson(e as Map<String, dynamic>))
           ?.toList());
@@ -27,7 +27,7 @@ DataEntity _$DataEntityFromJson(Map<String, dynamic> json) {
   return DataEntity(
       subjectId: json['subjectId'] as num?,
       subjectName: json['subjectName'] as String?,
-      grades: (json['grades'])
+      grades: (json['grades'] )
           ?.map((e) => e == null
               ? null
               : GradesEntity.fromJson(e as Map<String, dynamic>))

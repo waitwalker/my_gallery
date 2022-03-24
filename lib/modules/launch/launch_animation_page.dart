@@ -62,38 +62,6 @@ class _LaunchAnimationState extends State<LaunchAnimationPage>
 
   MethodChannel methodChannel = const MethodChannel("aixue_wangxiao_channel");
 
-  ///
-  /// @MethodName 跳转处理状态1
-  /// @Parameter
-  /// @ReturnType
-  /// @Description
-  /// @Author waitwalker
-  /// @Date 2020-02-03
-  ///
-  Future<dynamic>? _handler(MethodCall methodCall) {
-    print("${methodCall.method}");
-    print("${methodCall.arguments}");
-    if (SingletonManager.sharedInstance!.isHaveLogin == false) {
-      if (methodCall.arguments != null) {
-        List<String> arguments = methodCall.arguments.toString().split("&");
-        String account = arguments[0];
-        String password = arguments[1];
-        String isVip = arguments[2];
-        String gradeId = arguments[3];
-        /// 如果跳转触发的是冷启动,直接进入登录页面
-        if (account != null && password != null) {
-          //isJumpColdStarted = true;
-          SingletonManager.sharedInstance!.aixueAccount = account;
-          SingletonManager.sharedInstance!.aixuePassword = password;
-          SingletonManager.sharedInstance!.isVip = isVip;
-          SingletonManager.sharedInstance!.gradeId = gradeId;
-        }
-      }
-      print("登录页处理跳转");
-
-    }
-    return null;
-  }
 
 
   @override
@@ -168,7 +136,7 @@ class _LaunchAnimationState extends State<LaunchAnimationPage>
     } else {
       try {
         ccLoginModel = LoginModel.fromJson(jsonDecode(loginJson));
-      } on Exception catch (e) {
+      } on Exception catch (_) {
         isLogin = false;
       }
     }
@@ -262,7 +230,7 @@ class _LaunchAnimationState extends State<LaunchAnimationPage>
   ///
   _zhiLingAuth() async {
     ResponseData responseData = await CourseDaoManager.newCourses();
-    if (responseData != null && responseData.result && responseData.model != null) {
+    if (responseData.result && responseData.model != null) {
       MyCourseModel? courseModel = responseData.model as MyCourseModel?;
       if (courseModel != null) {
         if (courseModel.data != null && courseModel.data!.length > 0) {

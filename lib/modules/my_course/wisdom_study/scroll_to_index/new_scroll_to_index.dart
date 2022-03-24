@@ -405,7 +405,7 @@ implements ChapterAutoScrollController {
 
     if (preferPosition != null) {
       double targetOffset = _directionalOffsetToRevealInViewport(
-          index, _positionToAlignment(preferPosition)!)!;
+          index, _positionToAlignment(preferPosition))!;
 
       if (targetOffset < position.minScrollExtent)
         targetOffset = position.minScrollExtent;
@@ -433,8 +433,7 @@ implements ChapterAutoScrollController {
     }
   }
 
-  double? _positionToAlignment(AutoScrollPosition position) {
-    if (position == null) return null;
+  double _positionToAlignment(AutoScrollPosition position) {
 
     return position == AutoScrollPosition.begin
         ? 0

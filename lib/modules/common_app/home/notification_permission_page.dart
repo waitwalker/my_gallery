@@ -58,6 +58,8 @@ class _CommonNotificationPermissionState extends State<CommonNotificationPermiss
           return permDenied;
         case PermissionStatus.granted:
           return permGranted;
+        case PermissionStatus.unknown:
+          return permUnknown;
         default:
           return permUnknown;
       }

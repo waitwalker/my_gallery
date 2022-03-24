@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:my_gallery/modules/widgets/style/style.dart';
 import 'package:my_gallery/common/logger/logger.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -107,7 +106,7 @@ class SmsCodeState extends State<SmsCodeWidget> {
   Timer? _timer;
 
   /// 当前倒计时的秒数。
-  late int _seconds;
+  int? _seconds;
 
   /// 当前墨水瓶（`InkWell`）的字体样式。
   TextStyle? textStyle;
@@ -122,7 +121,7 @@ class SmsCodeState extends State<SmsCodeWidget> {
     textStyle = textStyleSubLarge333;
 
     focusNode!.addListener(() {
-      if (_seconds > 0 && _seconds < 60) return;
+      if (_seconds! > 0 && _seconds! < 60) return;
       bool hasFocus = focusNode!.hasFocus;
       debugLog('----> seconds : $_seconds --> hasFocus: $hasFocus');
       if (hasFocus) {
@@ -196,7 +195,7 @@ class SmsCodeState extends State<SmsCodeWidget> {
             ),
             const SizedBox(width: 12),
             InkWell(
-              onTap: _seconds % COUNTDOWN == 0 ? _onTap : null,
+              onTap: _seconds! % COUNTDOWN == 0 ? _onTap : null,
               child: Text(text!, style: textStyle),
             ),
           ],
@@ -221,7 +220,9 @@ class SmsCodeState extends State<SmsCodeWidget> {
       setState(() {});
       return;
     }
-    _seconds--;
+    if(_seconds != null) {
+      _seconds = _seconds! - 1;
+    }
     text = '重新获取(${_seconds}s)';
     textStyle = countdownStyle;
     setState(() {});

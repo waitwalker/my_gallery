@@ -32,7 +32,7 @@ MicroCourseResourceDataEntity _$MicroCourseResourceDataEntityFromJson(
       resourceName: json['resourceName'] as String?,
       imageUrl: json['imageUrl'] as String?,
       videoUrl: json['videoUrl'] as String?,
-      planUrlList: (json['planUrlList'])
+      planUrlList: (json['planUrlList'] )
           ?.map((e) => e == null
               ? null
               : PlanUrlListEntity.fromJson(e as Map<String, dynamic>))

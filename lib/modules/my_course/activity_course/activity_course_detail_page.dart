@@ -11,7 +11,6 @@ import 'package:my_gallery/modules/widgets/style/style.dart';
 import 'package:my_gallery/modules/widgets/alert/activity_alert.dart';
 import 'package:my_gallery/common/tools/date/eye_protection_timer.dart';
 import 'package:my_gallery/common/tools/screen_adapt/screen_utils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';

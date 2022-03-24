@@ -191,9 +191,6 @@ class _ErrorBookSubjectListPageState extends State<ErrorBookSubjectListPage> wit
       print("未压缩之前图片大小:${originalLength / 1024.0 / 1024.0}MB");
 
       showLoadingDialog(context,message: "处理中...");
-      if (image == null) {
-        Navigator.pop(context);
-      }
 
       /// 自己封装的压缩图片算法
      // File compressedFile = await ImageCompressManager.compressImage(File(image.path));
@@ -207,9 +204,6 @@ class _ErrorBookSubjectListPageState extends State<ErrorBookSubjectListPage> wit
       File compressedFile = await ImageCompressManager.compressImageQuality(File(image.path));
       int scaleImageSize = await compressedFile.length();
       print("压缩之后图片大小:${scaleImageSize / 1024.0 / 1024.0}MB");
-      if (compressedFile == null) {
-        Navigator.pop(context);
-      }
 
       doCrop(compressedFile.path).then((f) {
         Navigator.pop(context);

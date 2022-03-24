@@ -9,7 +9,7 @@ part of 'wisdom_child_list_model.dart';
 WisdomChildListModel _$WisdomChildListModelFromJson(Map<String, dynamic> json) {
   return WisdomChildListModel(
       code: json['code'] as num?,
-      data: (json['data'])
+      data: (json['data'] )
           ?.map((e) =>
               e == null ? null : DataEntity.fromJson(e as Map<String, dynamic>))
           ?.toList(),
@@ -27,12 +27,12 @@ DataEntity _$DataEntityFromJson(Map<String, dynamic> json) {
   return DataEntity(
       nodeId: json['nodeId'] as num?,
       nodeName: json['nodeName'] as String?,
-      resourceIdList: (json['resourceIdList'])
+      resourceIdList: (json['resourceIdList'] )
           ?.map((e) => e == null
               ? null
               : ResourceIdListEntity.fromJson(e as Map<String, dynamic>))
           ?.toList())
-    ..children = (json['children'])
+    ..children = (json['children'] )
         ?.map((e) =>
             e == null ? null : DataEntity.fromJson(e as Map<String, dynamic>))
         ?.toList()

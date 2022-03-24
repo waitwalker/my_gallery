@@ -183,7 +183,7 @@ class _UnitTestListState extends State<UnitTestListPage> {
             var testPaperModel = responseData.model as UnitTestModel?;
             setState(() {
               if (testPaperModel!.dataSource!.paperList!.isNotEmpty) {
-                testPaperList!.addAll(testPaperModel.dataSource!.paperList!);
+                testPaperList!.addAll(testPaperModel!.dataSource!.paperList!);
               }
               return null;
             });

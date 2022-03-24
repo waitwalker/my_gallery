@@ -6,9 +6,6 @@
 // email: sanfan.hx@alibaba-inc.com
 // tartget:  xxx
 //
-
-import 'package:flutter/material.dart';
-
 import '../../modal/base_citys.dart';
 import '../../modal/point.dart';
 
@@ -89,6 +86,7 @@ class CitiesUtils {
       }
     });
     categoriesList.forEach((TagCount item) {
+//      print("item: ${item.letter}, ${item.count}");
       double start = result.isNotEmpty ? result.last.end! : 0;
       result.add(CityOffsetRange(
           start: start,

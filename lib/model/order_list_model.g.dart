@@ -10,7 +10,7 @@ OrderListModel _$OrderListModelFromJson(Map<String, dynamic> json) {
   return OrderListModel(
       code: json['code'] as num?,
       msg: json['msg'] as String?,
-      data: (json['data'])
+      data: (json['data'] )
           ?.map((e) =>
               e == null ? null : DataEntity.fromJson(e as Map<String, dynamic>))
           ?.toList());

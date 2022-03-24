@@ -9,7 +9,7 @@ part of 'wisdom_model.dart';
 WisdomModel _$WisdomModelFromJson(Map<String, dynamic> json, {bool canMinus = false}) {
   return WisdomModel(
       code: json['code'] as num?,
-      data: (json['data'])
+      data: (json['data'] )
           ?.map((e) =>
               e == null ? null : DataEntity.fromJson(e as Map<String, dynamic>, canMinus: canMinus))
           ?.toList(),
@@ -30,13 +30,13 @@ DataEntity _$DataEntityFromJson(Map<String, dynamic> json, {bool canMinus = fals
       answerNumber: json['answerNumber'] as num?,
       questionsNumber: json['questionsNumber'] as num?,
       nodeName: json['nodeName'] as String?,
-      resourceIdList: (json['resourceIdList'])
+      resourceIdList: (json['resourceIdList'] )
           ?.map((e) => e == null
               ? null
               : ResourceIdListEntity.fromJson(e as Map<String, dynamic>))
           ?.toList(),
       level: canMinus ? (json['level'] as num) - 1 : (json['level'] as num?),
-      nodeList: (json['nodeList'])
+      nodeList: (json['nodeList'] )
           ?.map((e) =>
               e == null ? null : DataEntity.fromJson(e as Map<String, dynamic>, canMinus: canMinus))
           ?.toList())

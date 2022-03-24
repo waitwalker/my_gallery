@@ -500,8 +500,8 @@ class _LiveCourseListState extends State<LiveCourseList> with WifiOnlyCheckWidge
 
           if (receivedBytes == totalBytes) {
             Navigator.of(context).pop();
-            var savedFile = Uri.decodeFull(fullPathT);
-            Fluttertoast.showToast(msg: '班级二维码已保存至${fullPathT.length < 1 ? "设备" : savedFile}');
+            var savedFile = Uri.decodeFull(fullPathT ?? "");
+            Fluttertoast.showToast(msg: '班级二维码已保存至${fullPathT == null || fullPathT.length < 1 ? "设备" : savedFile}');
           }
         });
       } catch (e) {
@@ -749,7 +749,7 @@ class _LiveCourseListState extends State<LiveCourseList> with WifiOnlyCheckWidge
     } else {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => VideoPlayPage(
-              mp4Url,
+              mp4Url ?? model.data!.playVideoUrl!,
               resourceId: model.data!.resourceId,
               courseId: model.data!.onlineCourseId,
               title: model.data!.onlineCourseName)));

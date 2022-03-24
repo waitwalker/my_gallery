@@ -10,7 +10,7 @@ VideoSourceModel _$VideoSourceModelFromJson(Map<String, dynamic> json) {
   return VideoSourceModel(
       code: json['code'] as num?,
       msg: json['msg'] as String?,
-      data: (json['data'])
+      data: (json['data'] )
           ?.map((e) => e == null
               ? null
               : VideoSource.fromJson(e as Map<String, dynamic>))

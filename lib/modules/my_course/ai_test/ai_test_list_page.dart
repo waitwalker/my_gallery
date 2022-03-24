@@ -150,7 +150,7 @@ class _AITestListPageState extends State<AITestListPage> {
         var list = snapshot.data['list'];
         var model = list.model as AiModel;
         var materialModel = material as MaterialDataEntity?;
-        detailData = model.data;
+        detailData = model?.data;
 
         if (model.code == 1 && detailData != null && detailData!.length > 0) {
           return _buildList(materialModel, detailData);
@@ -373,7 +373,7 @@ class _AITestListPageState extends State<AITestListPage> {
               ? Container()
               : Expanded(
                   child: Text(
-                      '${materialModel.defAbbreviation} - ${materialModel.defMaterialName}',
+                      '${materialModel?.defAbbreviation} - ${materialModel?.defMaterialName}',
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                           color: Colors.black,

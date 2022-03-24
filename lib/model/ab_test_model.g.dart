@@ -8,8 +8,8 @@ part of 'ab_test_model.dart';
 
 AbTestModel _$AbTestModelFromJson(Map<String, dynamic> json) {
   return AbTestModel(
-      code: json['code'] as num,
-      msg: json['msg'] as String,
+      code: json['code'] as num?,
+      msg: json['msg'] as String?,
       data: (json['data'])
           ?.map((e) =>
               e == null ? null : DataEntity.fromJson(e as Map<String, dynamic>))
@@ -25,13 +25,13 @@ Map<String, dynamic> _$AbTestModelToJson(AbTestModel instance) =>
 
 DataEntity _$DataEntityFromJson(Map<String, dynamic> json) {
   return DataEntity(
-      paperId: json['paperId'] as num,
-      paperName: json['paperName'] as String,
-      resourceId: json['resourceId'] as num,
-      srcABPaperId: json['srcABPaperId'] as num,
-      srcABPaperName: json['srcABPaperName'] as String,
-      srcABPaperQuesIds: json['srcABPaperQuesIds'] as String,
-      ctime: json['ctime'] as String);
+      paperId: json['paperId'] as num?,
+      paperName: json['paperName'] as String?,
+      resourceId: json['resourceId'] as num?,
+      srcABPaperId: json['srcABPaperId'] as num?,
+      srcABPaperName: json['srcABPaperName'] as String?,
+      srcABPaperQuesIds: json['srcABPaperQuesIds'] as String?,
+      ctime: json['ctime'] as String?);
 }
 
 Map<String, dynamic> _$DataEntityToJson(DataEntity instance) =>

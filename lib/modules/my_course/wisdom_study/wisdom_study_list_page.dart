@@ -1070,7 +1070,7 @@ class _WisdomStudyListPageState extends State<WisdomStudyListPage> {
               ? Container()
               : Expanded(
               child: Text(
-                '${materialModel.defAbbreviation} - ${materialModel.defMaterialName}',
+                '${materialModel?.defAbbreviation} - ${materialModel?.defMaterialName}',
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: Colors.black,

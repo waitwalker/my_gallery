@@ -66,7 +66,7 @@ class _MessageListPageState extends State<MessageListPage> {
       if ((more?.length ?? 0) > 0) {
         setState(() {});
         list.addAll(more!);
-        if ((more.length) < 10) {
+        if ((more?.length ?? 0) < 10) {
           loadMore = false;
           loadMoreStatus = LoadMoreStatus.noData;
         }
@@ -87,7 +87,7 @@ class _MessageListPageState extends State<MessageListPage> {
   _messageList() {
     return ListView.builder(
       controller: _scrollController,
-      itemCount: list.length,
+      itemCount: list?.length ?? 0,
       itemBuilder: (BuildContext context, int index) {
         return _buildItem(list.elementAt(index));
       },

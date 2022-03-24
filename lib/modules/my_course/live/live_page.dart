@@ -118,7 +118,7 @@ class _LivePageState extends State<LivePage>
                       subjectId: widget.subjectId,
                       courseId: widget.courseId,
                       previewMode: widget.previewMode,
-                      record: (widget.record?.tabIndex ?? -1) == 0
+                      record: (widget?.record?.tabIndex ?? -1) == 0
                           ? widget.record
                           : null),
                   LiveCourseList(1, _memoizer1,
@@ -127,7 +127,7 @@ class _LivePageState extends State<LivePage>
                       subjectId: widget.subjectId,
                       courseId: widget.courseId,
                       previewMode: widget.previewMode,
-                      record: (widget.record?.tabIndex ?? -1) == 1
+                      record: (widget?.record?.tabIndex ?? -1) == 1
                           ? widget.record
                           : null),
                   LiveCourseList(2, _memoizer2,
@@ -136,7 +136,7 @@ class _LivePageState extends State<LivePage>
                       subjectId: widget.subjectId,
                       courseId: widget.courseId,
                       previewMode: widget.previewMode,
-                      record: (widget.record?.tabIndex ?? -1) == 2
+                      record: (widget?.record?.tabIndex ?? -1) == 2
                           ? widget.record
                           : null),
                 ]),
@@ -150,7 +150,7 @@ class _LivePageState extends State<LivePage>
           courseId: widget.courseId,
           previewMode: widget.previewMode,
           isSenior: isSenior,
-          record: (widget.record?.tabIndex ?? -1) == 2
+          record: (widget?.record?.tabIndex ?? -1) == 2
               ? widget.record
               : null);
     }

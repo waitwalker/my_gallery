@@ -47,12 +47,12 @@ class _AdvertisementState extends State<AdvertisementPage> {
   /// @Date 2020-02-03
   ///
   Future<dynamic> _handler(MethodCall? methodCall) {
-    print("${methodCall?.method}");
-    print("${methodCall?.arguments}");
+    print("${methodCall!.method}");
+    print("${methodCall.arguments}");
     if (SingletonManager.sharedInstance!.isHaveLogin == false) {
-      if (methodCall?.arguments != null) {
-        List<String>? arguments = methodCall?.arguments.toString().split("&");
-        String account = arguments![0];
+      if (methodCall.arguments != null) {
+        List<String> arguments = methodCall.arguments.toString().split("&");
+        String account = arguments[0];
         String password = arguments[1];
         String isVip = arguments[2];
         String gradeId = arguments[3];

@@ -405,7 +405,7 @@ mixin AutoScrollControllerMixin on ScrollController
 
     if (preferPosition != null) {
       double targetOffset = _directionalOffsetToRevealInViewport(
-          index, _positionToAlignment(preferPosition)!)!;
+          index, _positionToAlignment(preferPosition))!;
 
       if (targetOffset < position.minScrollExtent)
         targetOffset = position.minScrollExtent;
@@ -433,9 +433,7 @@ mixin AutoScrollControllerMixin on ScrollController
     }
   }
 
-  double? _positionToAlignment(AutoScrollPosition position) {
-    if (position == null) return null;
-
+  double _positionToAlignment(AutoScrollPosition position) {
     return position == AutoScrollPosition.begin
         ? 0
         : position == AutoScrollPosition.end ? 1 : 0.5;

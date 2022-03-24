@@ -28,7 +28,7 @@ DataEntity _$DataEntityFromJson(Map<String, dynamic> json) {
       pageSize: json['pageSize'] as num?,
       totalCount: json['totalCount'] as num?,
       totalPage: json['totalPage'] as num?,
-      list: (json['list'])
+      list: (json['list'] )
           ?.map((e) =>
               e == null ? null : Message.fromJson(e as Map<String, dynamic>))
           ?.toList(),

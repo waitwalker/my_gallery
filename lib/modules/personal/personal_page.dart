@@ -21,7 +21,6 @@ import 'package:my_gallery/modules/personal/settings/setting_page.dart';
 import 'package:my_gallery/modules/personal/unit_test/unit_test_page.dart';
 import 'package:my_gallery/modules/widgets/style/style.dart';
 import 'package:my_gallery/common/logger/logger.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:package_info/package_info.dart';
@@ -485,7 +484,6 @@ class PersonalPageState extends State<PersonalPage> {
   }
 
   Widget _bottomItem(Map<String, dynamic> dic, {bool showDivider = true}) {
-
     var content = Container(
       padding: EdgeInsets.symmetric(vertical: SingletonManager.sharedInstance!.screenWidth > 500.0 ? 20 : 15,),
       child: Column(

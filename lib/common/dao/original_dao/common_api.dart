@@ -39,9 +39,9 @@ class CommonServiceDao {
       'time': DateTime.now().millisecondsSinceEpoch.toString()
     };
 
-    param['sign'] = "SignUtil.makeSign('checkAppVersion.do', param)";
+    param['sign'] = SignUtil.makeSign('checkAppVersion.do', param);
 
-    url = url + '?' + "SignUtil.joinParam(param)";
+    url = url + '?' + SignUtil.joinParam(param);
 
     ResponseData response = await NetworkManager.netFetch(url, null, null, null);
 
@@ -63,7 +63,7 @@ class CommonServiceDao {
       'devType': devType,
     };
 
-    url = url + '?' + "SignUtil.joinParam(param)";
+    url = url + '?' + SignUtil.joinParam(param);
     ResponseData response = await NetworkManager.netFetch(url, null, null, null);
     if (response.result) {
       var model = ReviewStatusModel.fromJson(response.data);

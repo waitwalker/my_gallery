@@ -260,23 +260,23 @@ class _ChapterPracticeState extends State<ChapterPracticePage> {
                   print("current index:$index");
                   DataEntity currentDataEntity = data[index];
                   record!.firstId = currentDataEntity.nodeId;
-                  if (dataEntity?.level == 2) {
+                  if (dataEntity!.level == 2) {
                     for (int i = 0; i < currentDataEntity.nodeList!.length; i++) {
                       DataEntity tmpDataEntity = currentDataEntity.nodeList![i];
-                      if (tmpDataEntity.nodeId == dataEntity?.nodeId) {
-                        record!.secondId = dataEntity?.nodeId;
+                      if (tmpDataEntity.nodeId == dataEntity.nodeId) {
+                        record!.secondId = dataEntity.nodeId;
                         record!.thirdId = -1;
                       }
                     }
                   }
 
-                  if (dataEntity?.level == 3) {
+                  if (dataEntity.level == 3) {
                     for (int i = 0; i < currentDataEntity.nodeList!.length; i++) {
                       DataEntity tmpDataEntity = currentDataEntity.nodeList![i];
                       if (tmpDataEntity.nodeList != null && tmpDataEntity.nodeList!.length > 0) {
                         for (int j = 0; j < tmpDataEntity.nodeList!.length; j++) {
                           DataEntity thirdLevelDataEntity = tmpDataEntity.nodeList![j];
-                          if (thirdLevelDataEntity.nodeId == dataEntity?.nodeId) {
+                          if (thirdLevelDataEntity.nodeId == dataEntity.nodeId) {
                             record!.secondId = tmpDataEntity.nodeId;
                             record!.thirdId = thirdLevelDataEntity.nodeId;
                           }
@@ -286,7 +286,7 @@ class _ChapterPracticeState extends State<ChapterPracticePage> {
                   }
                   record!.id = -1;
                   record!.courseId = -1;
-                  record!.title = dataEntity?.nodeName;
+                  record!.title = dataEntity.nodeName;
                   if (record != null) {
                     saveRecord(record);
                     debugLog(record);
@@ -300,14 +300,14 @@ class _ChapterPracticeState extends State<ChapterPracticePage> {
                     var subjectId = materialModel.subjectId;
 
                     var url = APIConst.chapter;
-                    String fullURL = '$url?token=$token&subjectid=${widget.subjectId}&pointid=${dataEntity?.nodeId}&cname=${dataEntity?.nodeName}&courseid=${widget.courseId}';
+                    String fullURL = '$url?token=$token&subjectid=${widget.subjectId}&pointid=${dataEntity.nodeId}&cname=${dataEntity.nodeName}&courseid=${widget.courseId}';
                     /// 跳转到AI详情页面
                     return AIWebPage(
-                      currentDirId: dataEntity?.nodeId.toString(),
+                      currentDirId: dataEntity.nodeId.toString(),
                       versionId: versionId.toString(),
                       subjectId: subjectId.toString(),
                       initialUrl: fullURL,
-                      title: dataEntity?.nodeName,
+                      title: dataEntity.nodeName,
                       showTimeCount: false,
                     );
                   })).then((_) {
@@ -458,7 +458,7 @@ class EntryItem extends StatelessWidget {
     /// 最终实现，第一章第一节第一知识点，下面的前2个资源免费体验
     List<Widget> children = root.nodeList
         ?.map((m) => _buildTiles(m, isFirst: root.nodeList!.indexOf(m) == 0&&isFirst))
-        ?.toList() ??
+        .toList() ??
         [];
     if (children.length == 0) {
       /// 章和节的直属资源

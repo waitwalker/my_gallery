@@ -73,10 +73,10 @@ class _MyCoursePageState extends State<MyCoursePage> {
   bool disconnected = false;
 
   // 智领卡片数据
-  List<DataEntity>? get courseDataZL => courseData?.where((i) => zhiLingSubjects.contains(i.subjectId))?.toList();
+  List<DataEntity>? get courseDataZL => courseData?.where((i) => zhiLingSubjects.contains(i.subjectId)).toList();
 
   // 智学卡片数据
-  List<DataEntity>? get courseDataZX => courseData?.where((i) => !zhiLingSubjects.contains(i.subjectId))?.toList();
+  List<DataEntity>? get courseDataZX => courseData?.where((i) => !zhiLingSubjects.contains(i.subjectId)).toList();
   AsyncMemoizer memoizer = AsyncMemoizer();
   AsyncMemoizer memoizerRecommend = AsyncMemoizer();
   AsyncMemoizer memoizerSelfStudy = AsyncMemoizer();
@@ -298,8 +298,8 @@ class _MyCoursePageState extends State<MyCoursePage> {
                   var courses = courseData;
                   Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) =>
                       ClassSchedulePage(
-                        subjectId: courses?.first?.subjectId,
-                        courseId: courses?.first?.subjectId,),),);
+                        subjectId: courses?.first.subjectId,
+                        courseId: courses?.first.subjectId,),),);
                 },
               )
             ],
@@ -355,7 +355,7 @@ class _MyCoursePageState extends State<MyCoursePage> {
                     //   //..register(DioInspector(dio: dio));                  // 传入你的 Dio 实例
                     // // flutter_ume 0.3.0 版本之后
                     // runApp(UMEWidget(child: FluApp(), enable: true));
-                    //runApp(FluApp());
+                    // runApp(FluApp());
                   },
                 )
               ],
@@ -825,7 +825,7 @@ class _MyCoursePageState extends State<MyCoursePage> {
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       reverse: false,
-                      child: Row(children: buildTag(item.grades?.map((g) => gradeSample[g.gradeId as int])?.toList())),
+                      child: Row(children: buildTag(item.grades?.map((g) => gradeSample[g.gradeId as int]).toList())),
                     ),
                   ),
                 ),
@@ -961,7 +961,7 @@ class _MyCoursePageState extends State<MyCoursePage> {
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       reverse: false,
-                      child: Row(children: buildTag(item.grades?.map((g) => gradeSample[g.gradeId as int])?.toList())),
+                      child: Row(children: buildTag(item.grades?.map((g) => gradeSample[g.gradeId as int]).toList())),
                     ),
                   ),
                 ),
@@ -1323,7 +1323,7 @@ class Indicator extends StatelessWidget {
       decoration: BoxDecoration(
         color: color ?? const Color(MyColors.primaryValue),
         borderRadius:
-        BorderRadius.all(Radius.circular(min<double>(width!, height!)/ 2)), //设置圆角
+        BorderRadius.all(Radius.circular(min(width!, height!) / 2)), //设置圆角
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: color ?? const Color(MyColors.primaryValue),

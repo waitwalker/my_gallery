@@ -2,8 +2,6 @@ import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_gallery/common/config/config.dart';
 import 'package:my_gallery/common/logger/logger_manager.dart';
 import 'package:my_gallery/common/network/error_code.dart';
@@ -60,14 +58,12 @@ class NetworkManager {
       if (currToken == null || currToken.startsWith('Basic ')) {
         // 查询token
         String authorizationCode = await getAuthorization();
-        if (authorizationCode != null) {
-          // 如果还是basic，设置给header
-          if (authorizationCode.startsWith('Basic ')) {
-            headers["Authorization"] = authorizationCode;
-          } else {
-            // 如果是Bearer，保存到option
-            optionParams["authorizationCode"] = 'Bearer $authorizationCode';
-          }
+        // 如果还是basic，设置给header
+        if (authorizationCode.startsWith('Basic ')) {
+          headers["Authorization"] = authorizationCode;
+        } else {
+          // 如果是Bearer，保存到option
+          optionParams["authorizationCode"] = 'Bearer $authorizationCode';
         }
       }
       // 如果没有token，从option里读取并设置
@@ -110,6 +106,7 @@ class NetworkManager {
           // }
           return true;
         };
+        return null;
       };
     }
     // }
@@ -250,12 +247,8 @@ class NetworkManager {
     String? token = ccLoginModel.access_token;
     if (token == null) {
       String basic = APIConst.basicToken;
-      if (basic == null) {
-        //提示输入账号密码
-      } else {
-        //通过 basic 去获取token，获取到设置，返回token
-        return "Basic $basic";
-      }
+      //通过 basic 去获取token，获取到设置，返回token
+      return "Basic $basic";
     } else {
       return token;
     }

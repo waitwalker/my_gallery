@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:device_info/device_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -68,15 +70,6 @@ class UserPrivacyApp extends StatelessWidget {
           theme: store.state.themeData,
         );
       }),
-    );
-
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        backgroundColor: Colors.white,
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
     );
   }
 }

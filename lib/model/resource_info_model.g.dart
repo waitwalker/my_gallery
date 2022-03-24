@@ -2,9 +2,9 @@
 
 part of 'resource_info_model.dart';
 
-// **************************************************************************
+// *****************************r*********************************************
 // JsonSerializableGenerator
-// **************************************************************************
+// ****************************r**********************************************
 
 ResourceInfoModel _$ResourceInfoModelFromJson(Map<String, dynamic> json) {
   return ResourceInfoModel(
@@ -32,7 +32,7 @@ DataEntity _$DataEntityFromJson(Map<String, dynamic> json) {
       downPlanUrl: json['downPlanUrl'] as String?,
       authorName: json['authorName'] as String?,
       authorIntro: json['authorIntro'] as String?,
-      points: (json['points'])
+      points: (json['points'] )
           ?.map((e) => e == null
               ? null
               : PointsEntity.fromJson(e as Map<String, dynamic>))

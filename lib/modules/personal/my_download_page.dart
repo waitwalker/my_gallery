@@ -80,7 +80,7 @@ class _MyDownloadPageState extends State<MyDownloadPage> with WifiOnlyCheckWidge
 
   @override
   Widget build(BuildContext context) {
-    var length = (videoFiles.length) + (pdfFiles.length);
+    var length = (videoFiles?.length ?? 0) + (pdfFiles?.length ?? 0);
     return Scaffold(
       appBar: AppBar(
         elevation: 1.0,

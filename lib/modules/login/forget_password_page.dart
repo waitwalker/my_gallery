@@ -289,13 +289,13 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   }
 
   Future<Null> onPressed() async {
-    _mobileController!.text.isEmpty
+    _mobileController!.text?.isEmpty ?? true
         ? toast('手机号不能为空')
         : !RegExp(r"^1\d{10}$").hasMatch(_mobileController!.text)
             ? toast('手机号格式不正确')
-            : _smsController!.text.isEmpty
+            : _smsController!.text?.isEmpty ?? true
                 ? toast('验证码不能为空')
-                : _passwordController!.text.isEmpty
+                : _passwordController!.text?.isEmpty ?? true
                     ? toast('密码不能为空')
                     : checkPassword(_passwordController!.text, doFindPassword);
   }
@@ -305,7 +305,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   }
 
   checkPassword(String pwd, Function callback) {
-    pwd.isEmpty
+    pwd?.isEmpty ?? true
         ? toast('密码不能为空')
         : pwd.length < 6
             ? toast('密码不能小于6个字符')

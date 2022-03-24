@@ -80,7 +80,7 @@ class _ChooseCardPageState extends State<ChooseCardPage> {
       .where((c) => c.subjectId == _subject && c.gradeId == _grade)
       .toList();
 
-  bool get hasChoice => (lists.length) > 0;
+  bool get hasChoice => (lists?.length ?? 0) > 0;
 
   int get limit => widget.limit ?? double.infinity.toInt();
   int checkedNum = 0;
@@ -133,7 +133,8 @@ class _ChooseCardPageState extends State<ChooseCardPage> {
                           .map((i) => DropdownMenuItem(
                               child: Text(i.entries.first.value ?? '未知'),
                               value: i.entries.first.key))
-                          .toList(),
+                          .toList() ??
+                      [],
                   value: _grade,
                   hint: Text('选择年级', style: textStyleNormal),
                   isExpanded: true,

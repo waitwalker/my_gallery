@@ -141,7 +141,7 @@ class _AIWebPageState extends State<AIWebPage>
           Container(
               padding: EdgeInsets.symmetric(horizontal: 15),
               alignment: Alignment.center,
-              child: Text(secToHMS(remain < 0 ? 0 : remain), style: textStyle25Primary)) :
+              child: Text(secToHMS(remain < 0 ? 0 : remain) ?? '', style: textStyle25Primary)) :
           Container(),
         ],
       ),

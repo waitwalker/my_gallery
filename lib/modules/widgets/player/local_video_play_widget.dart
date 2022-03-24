@@ -104,10 +104,10 @@ class _LocalVideoPlayWidgetState extends State<LocalVideoPlayWidget> with Widget
     bool isLocal = false;
     if (uri.isScheme('http') || uri.isScheme('https')) {
       isLocal = false;
-      controller = VideoPlayerController.network(url, backgroundPlay: backgroundPlay);
+      controller = VideoPlayerController.network(url ?? source, backgroundPlay: backgroundPlay);
     } else {
       isLocal = true;
-      controller = VideoPlayerController.file(File(url), backgroundPlay: backgroundPlay);
+      controller = VideoPlayerController.file(File(url ?? source), backgroundPlay: backgroundPlay);
     }
     _chewieController = ChewieController(
       videoPlayerController: controller!,
@@ -152,7 +152,7 @@ class _LocalVideoPlayWidgetState extends State<LocalVideoPlayWidget> with Widget
                 var newUrl = model.data!.videoUrl;
 
                 var bgPlay = controller!.backgroundPlay;
-                ChewieController? cController = _chewieController!;
+                var cController = _chewieController!;
                 var vController = controller;
                 cController.pause();
                 _chewieController = null;
@@ -161,10 +161,8 @@ class _LocalVideoPlayWidgetState extends State<LocalVideoPlayWidget> with Widget
                       url: newUrl!, autoPlay: true, backgroundPlay: bgPlay);
                   setState(() {});
                   Future.delayed(Duration(seconds: 1), () {
-                    cController?.dispose();
-                    vController?.dispose();
-                    cController = null;
-                    cController = null;
+                    cController.dispose();
+                    vController!.dispose();
                   });
                 });
               }
