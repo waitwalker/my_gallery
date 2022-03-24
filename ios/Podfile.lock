@@ -34,7 +34,6 @@ PODS:
   - GDTMobSDK (4.13.52):
     - GDTMobSDK/GDTMobSDK (= 4.13.52)
   - GDTMobSDK/GDTMobSDK (4.13.52)
-  - HydraAsync (2.0.6)
   - permission_handler_apple (9.0.2):
     - Flutter
   - replay_kit_launcher (0.3.0):
@@ -43,18 +42,7 @@ PODS:
     - Flutter
   - shared_preferences_ios (0.0.1):
     - Flutter
-  - tencent_im_sdk_plugin (1.0.5):
-    - Flutter
-    - HydraAsync
-    - TXIMSDK_Plus_iOS (= 6.1.2155)
-  - tencent_trtc_cloud (9.5.11234):
-    - Flutter
-    - TXLiteAVSDK_TRTC (= 9.5.11234)
   - Toast (4.0.0)
-  - TXIMSDK_Plus_iOS (6.1.2155)
-  - TXLiteAVSDK_TRTC (9.5.11234):
-    - TXLiteAVSDK_TRTC/TRTC (= 9.5.11234)
-  - TXLiteAVSDK_TRTC/TRTC (9.5.11234)
   - url_launcher_ios (0.0.1):
     - Flutter
   - webview_flutter_wkwebview (0.0.1):
@@ -72,8 +60,6 @@ DEPENDENCIES:
   - replay_kit_launcher (from `.symlinks/plugins/replay_kit_launcher/ios`)
   - share (from `.symlinks/plugins/share/ios`)
   - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
-  - tencent_im_sdk_plugin (from `.symlinks/plugins/tencent_im_sdk_plugin/ios`)
-  - tencent_trtc_cloud (from `.symlinks/plugins/tencent_trtc_cloud/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
   - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/ios`)
 
@@ -83,10 +69,7 @@ SPEC REPOS:
     - Bugly
     - BURelyFoundation
     - GDTMobSDK
-    - HydraAsync
     - Toast
-    - TXIMSDK_Plus_iOS
-    - TXLiteAVSDK_TRTC
 
 EXTERNAL SOURCES:
   device_info:
@@ -111,10 +94,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/share/ios"
   shared_preferences_ios:
     :path: ".symlinks/plugins/shared_preferences_ios/ios"
-  tencent_im_sdk_plugin:
-    :path: ".symlinks/plugins/tencent_im_sdk_plugin/ios"
-  tencent_trtc_cloud:
-    :path: ".symlinks/plugins/tencent_trtc_cloud/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
   webview_flutter_wkwebview:
@@ -132,19 +111,14 @@ SPEC CHECKSUMS:
   flutter_universalad: f2b8adf3c5ad758a802058176bd63f17173ea7a2
   fluttertoast: 16fbe6039d06a763f3533670197d01fc73459037
   GDTMobSDK: 0eeeb58758b4d2b84763ac82a2b6d3326c5e4a78
-  HydraAsync: 8d589bd725b0224f899afafc9a396327405f8063
   permission_handler_apple: d21b38e1a4b2e041c63af9568f9165e114e507a6
   replay_kit_launcher: 9c6874fe17ce278a6f0e99e3698acf194480e9a2
   share: 0b2c3e82132f5888bccca3351c504d0003b3b410
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
-  tencent_im_sdk_plugin: 600831064deba0e927d0113e82491a8168bc74e2
-  tencent_trtc_cloud: 56a3647962c0d7f2f6c2724523c8351ebccf9752
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
-  TXIMSDK_Plus_iOS: 07c7de95613d75b52e8d33da4f07ff3dafddc9e7
-  TXLiteAVSDK_TRTC: e36ed7849f0df1fae93b9e7c9929b99f0a9424b7
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
   webview_flutter_wkwebview: 005fbd90c888a42c5690919a1527ecc6649e1162
 
 PODFILE CHECKSUM: e6b2b96b270f6936b380ca6a2d7ffa973896596f
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

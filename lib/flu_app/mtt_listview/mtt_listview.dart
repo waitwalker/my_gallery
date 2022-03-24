@@ -111,18 +111,18 @@ class _MTTListViewState extends State<MTTListView> {
         widget.itemScrollController ?? ItemScrollController();
     itemPositionsListener =
         widget.itemPositionsListener ?? ItemPositionsListener.create();
-    dragListener.dragDetails?.addListener(_valueChanged);
+    dragListener.dragDetails.addListener(_valueChanged);
     if (widget.indexBarOptions.selectItemDecoration != null) {
-      itemPositionsListener!.itemPositions?.addListener(_positionsChanged);
+      itemPositionsListener!.itemPositions.addListener(_positionsChanged);
     }
   }
 
   @override
   void dispose() {
     super.dispose();
-    dragListener.dragDetails?.removeListener(_valueChanged);
+    dragListener.dragDetails.removeListener(_valueChanged);
     if (widget.indexBarOptions.selectItemDecoration != null) {
-      itemPositionsListener!.itemPositions?.removeListener(_positionsChanged);
+      itemPositionsListener!.itemPositions.removeListener(_positionsChanged);
     }
   }
 
@@ -167,7 +167,7 @@ class _MTTListViewState extends State<MTTListView> {
       String? tag = widget.data[index].getHoverTag();
       if (selectTag != tag) {
         selectTag = tag;
-        indexBarController?.updateTagIndex(tag);
+        indexBarController.updateTagIndex(tag);
       }
     }
   }

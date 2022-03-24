@@ -30,11 +30,11 @@ import 'package:my_gallery/flu_app/sliver_module/sliver_entrance_page.dart';
 import 'package:my_gallery/flu_app/sliver_module/sliver_list_page.dart';
 import 'package:my_gallery/flu_app/sliver_module/sliver_sticky_page.dart';
 import 'package:my_gallery/flu_app/splash_module/splash_page.dart';
-import 'package:my_gallery/flu_app/t_live/TRTCLiveRoomDemo/ui/list/LiveRoomCreate.dart';
-import 'package:my_gallery/flu_app/t_live/TRTCLiveRoomDemo/ui/list/LiveRoomList.dart';
-import 'package:my_gallery/flu_app/t_live/TRTCLiveRoomDemo/ui/room/LiveRoomPage.dart';
-import 'package:my_gallery/flu_app/t_live/index.dart';
-import 'package:my_gallery/flu_app/t_live/login/TLoginPage.dart';
+// import 'package:my_gallery/flu_app/t_live/TRTCLiveRoomDemo/ui/list/LiveRoomCreate.dart';
+// import 'package:my_gallery/flu_app/t_live/TRTCLiveRoomDemo/ui/list/LiveRoomList.dart';
+// import 'package:my_gallery/flu_app/t_live/TRTCLiveRoomDemo/ui/room/LiveRoomPage.dart';
+// import 'package:my_gallery/flu_app/t_live/index.dart';
+// import 'package:my_gallery/flu_app/t_live/login/TLoginPage.dart';
 import 'package:my_gallery/flu_app/tabbar/tabbar_page.dart';
 
 import '../canvas/paint_1_page.dart';
@@ -267,29 +267,29 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
         childPage = PersonalPage();
         break;
       //  腾讯登录页面
-      case FluRouterPageAPI.tLoginPage:
-        childPage = TLoginPage();
-        break;
-      //  索引页面
-      case FluRouterPageAPI.indexPage:
-        childPage = IndexPage();
-        break;
-      //  直播列表页面
-      case FluRouterPageAPI.liveListPage:
-        childPage = LiveRoomListPage();
-        break;
-      //  创建直播页面
-      case FluRouterPageAPI.createLivePage:
-        childPage = LiveRoomCreatePage();
-        break;
-      //  主播页面 推流页面
-      case FluRouterPageAPI.livePage:
-        childPage = LiveRoomPage(isAdmin: true);
-        break;
-      //  观众页面 拉流页面
-      case FluRouterPageAPI.audiencePage:
-        childPage = LiveRoomPage(isAdmin: false);
-        break;
+      // case FluRouterPageAPI.tLoginPage:
+      //   childPage = TLoginPage();
+      //   break;
+      // //  索引页面
+      // case FluRouterPageAPI.indexPage:
+      //   childPage = IndexPage();
+      //   break;
+      // //  直播列表页面
+      // case FluRouterPageAPI.liveListPage:
+      //   childPage = LiveRoomListPage();
+      //   break;
+      // //  创建直播页面
+      // case FluRouterPageAPI.createLivePage:
+      //   childPage = LiveRoomCreatePage();
+      //   break;
+      // //  主播页面 推流页面
+      // case FluRouterPageAPI.livePage:
+      //   childPage = LiveRoomPage(isAdmin: true);
+      //   break;
+      // //  观众页面 拉流页面
+      // case FluRouterPageAPI.audiencePage:
+      //   childPage = LiveRoomPage(isAdmin: false);
+      //   break;
 
       default:
         /// 错误页面占位
