@@ -59,9 +59,9 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   void didChangeDependencies() {
     var data = _getStore().state.userInfo!.data!;
     _sex = data.sex;
-    _realName = data?.realName;
-    _userName = data?.userName;
-    _oldUserName = data?.realName;
+    _realName = data.realName;
+    _userName = data.userName;
+    _oldUserName = data.realName;
 
     _birthday = data.birthday!.split(' ').first;
     _address = data.address;
@@ -335,7 +335,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
 
   Future _doSave(String? _realName, String? _oldUserName, String? _address,
       String? _email, String? _birthday, Object? _sex) async {
-    AppState state = _getStore()!.state;
+    AppState state = _getStore().state;
     if (editable) {
       var setUserInfo = await UserInfoDao.setUserInfo(
           state.userInfo!.data!.userId.toString(),

@@ -245,15 +245,15 @@ class _ActivateCardStatePageState extends State<ActivateCardStatePage> {
   }
 
   Future _onPressed(Function callback) async {
-    _cardNumberController!.text.trim()?.isEmpty ?? true
+    _cardNumberController!.text.trim().isEmpty
         ? toast('卡号不能为空')
-        : _cardPasswordController!.text?.isEmpty ?? true
+        : _cardPasswordController!.text.isEmpty
             ? toast('卡密码不能为空')
-            : _nameController!.text?.isEmpty ?? true
+            : _nameController!.text.isEmpty
                 ? toast('姓名不能为空')
-                : _areaController!.text?.isEmpty ?? true
+                : _areaController!.text.isEmpty
                     ? toast('地区不能为空')
-                    : _schoolController!.text?.isEmpty ?? true
+                    : _schoolController!.text.isEmpty
                         ? toast('学校名不能为空')
                         : selectItValue == null ? toast('年级不能为空') : callback();
   }

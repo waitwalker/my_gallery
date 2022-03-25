@@ -125,11 +125,11 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
 
   _onPressed() {
     FocusScope.of(context).requestFocus(new FocusNode());
-    _password!.text?.isEmpty ?? true
+    _password!.text.isEmpty
         ? toast('请输入密码')
-        : _newPassword!.text?.isEmpty ?? true
+        : _newPassword!.text.isEmpty
             ? toast('请输入新密码')
-            : _confirmPassword!.text?.isEmpty ?? true
+            : _confirmPassword!.text.isEmpty
                 ? toast('请输入确认密码')
                 : _newPassword!.text != _confirmPassword!.text
                     ? toast('密码输入不一致')
@@ -155,7 +155,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   }
 
   checkPassword(String pwd, Function callback) {
-    pwd?.isEmpty ?? true
+    pwd.isEmpty
         ? toast('密码不能为空')
         : pwd.length < 6
             ? toast('密码不能小于6个字符')

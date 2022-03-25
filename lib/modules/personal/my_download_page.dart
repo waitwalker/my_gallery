@@ -80,7 +80,7 @@ class _MyDownloadPageState extends State<MyDownloadPage> with WifiOnlyCheckWidge
 
   @override
   Widget build(BuildContext context) {
-    var length = (videoFiles?.length ?? 0) + (pdfFiles?.length ?? 0);
+    var length = (videoFiles.length) + (pdfFiles.length);
     return Scaffold(
       appBar: AppBar(
         elevation: 1.0,
@@ -100,7 +100,7 @@ class _MyDownloadPageState extends State<MyDownloadPage> with WifiOnlyCheckWidge
   /// @time 3/15/21 3:46 PM
   ///
   builderContent(int length) {
-    if(length == null || length == 0) {
+    if(length == 0) {
       return EmptyPlaceholderPage(assetsPath: 'static/images/empty.png', message: '没有数据',);
     } else {
       return Container(
@@ -280,7 +280,7 @@ class _MyDownloadPageState extends State<MyDownloadPage> with WifiOnlyCheckWidge
     String fullURL = "无";
     String downloadURL = "";
     List list = basename.split("+");
-    if (list != null && list.length > 2) {
+    if (list.length > 2) {
       fullURL = SharedPrefsUtils.get(list[2], "无");
       downloadURL = SharedPrefsUtils.get(list[2] + "ett", "无");
     }

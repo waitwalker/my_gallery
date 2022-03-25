@@ -102,7 +102,7 @@ class _EditErrorItemPageState extends State<EditErrorItemPage> {
       children: <ExpansionPanel>[
         ExpansionPanel(
           headerBuilder: (context, isExpanded) {
-            return ListTile(title: Text(_selectedGrade ?? '选择年级', style: TextStyle(fontSize: 15, color: Color(MyColors.title_black),)));
+            return ListTile(title: Text(_selectedGrade, style: TextStyle(fontSize: 15, color: Color(MyColors.title_black),)));
           },
           body: Padding(
             padding: EdgeInsets.fromLTRB(0, 0, 0, 0),

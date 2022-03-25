@@ -104,10 +104,10 @@ class _LocalVideoPlayWidgetState extends State<LocalVideoPlayWidget> with Widget
     bool isLocal = false;
     if (uri.isScheme('http') || uri.isScheme('https')) {
       isLocal = false;
-      controller = VideoPlayerController.network(url ?? source, backgroundPlay: backgroundPlay);
+      controller = VideoPlayerController.network(url, backgroundPlay: backgroundPlay);
     } else {
       isLocal = true;
-      controller = VideoPlayerController.file(File(url ?? source), backgroundPlay: backgroundPlay);
+      controller = VideoPlayerController.file(File(url), backgroundPlay: backgroundPlay);
     }
     _chewieController = ChewieController(
       videoPlayerController: controller!,

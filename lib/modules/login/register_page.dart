@@ -45,9 +45,6 @@ class _RegisterPageState extends State<RegisterPage> {
   FocusNode _userFocusNode = FocusNode();
   FocusNode _passwordFocusNode = FocusNode();
   FocusNode _smsCodeFocusNode = FocusNode();
-
-  FocusNode _cityFocusNode = FocusNode();
-
   bool showAccountDelete = false; ///删除是否可见
   bool showPasswordVisible = false; ///控制密码明文密文
   bool shouldHideVisible = true; ///密码明文密文按钮是否可见
@@ -620,7 +617,7 @@ class _RegisterPageState extends State<RegisterPage> {
     }
 
     var username = _mobileController!.text;
-    if (username == null || username.isEmpty) {
+    if (username.isEmpty) {
       _onPressed = null;
     } else {
       _onPressed = onPressed;
@@ -632,13 +629,13 @@ class _RegisterPageState extends State<RegisterPage> {
     _userFocusNode.unfocus();
     _passwordFocusNode.unfocus();
     _smsCodeFocusNode.unfocus();
-    _mobileController!.text?.isEmpty ?? true
+    _mobileController!.text.isEmpty
         ? toast('手机号不能为空')
         : !RegExp(r"^1\d{10}$").hasMatch(_mobileController!.text)
         ? toast('手机号格式不正确')
-        : _smsController!.text?.isEmpty ?? true
+        : _smsController!.text.isEmpty
         ? toast('验证码不能为空')
-        : _regionController!.text?.isEmpty ?? true
+        : _regionController!.text.isEmpty
         ? toast('所在地区不能为空')
         : !agree!
         ? toast('请先阅读并同意用户服务协议')
@@ -667,7 +664,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   checkPassword(String pwd, Function callback) {
-    pwd?.isEmpty ?? true
+    pwd.isEmpty
         ? toast('密码不能为空')
         : pwd.length < 6
         ? toast('密码不能小于6个字符')

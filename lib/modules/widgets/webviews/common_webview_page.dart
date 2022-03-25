@@ -313,7 +313,7 @@ class _CommonWebviewPageState extends State<CommonWebviewPage> with SingleTicker
         return AppBar(
           elevation: 1,
           backgroundColor: Colors.white,
-          title: Text(title ?? "错题本", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+          title: Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
           centerTitle: false,
           actions: <Widget>[
             InkWell(
@@ -826,7 +826,7 @@ class _CommonWebviewPageState extends State<CommonWebviewPage> with SingleTicker
         return AppBar(
           elevation: 1,
           backgroundColor: Colors.white,
-          title: Text(title ?? "错题本"),
+          title: Text(title),
           centerTitle: Platform.isIOS ? true : false,
           actions: <Widget>[
             InkWell(

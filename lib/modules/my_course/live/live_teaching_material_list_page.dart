@@ -178,7 +178,7 @@ class _LiveMaterialListState extends State<LiveMaterialListPage> {
         size: 15,
       ),
       onTap: () async {
-        if (model?.fileUrl == null) {
+        if (model.fileUrl == null) {
           Fluttertoast.showToast(msg: '暂无资料包');
           return;
         }

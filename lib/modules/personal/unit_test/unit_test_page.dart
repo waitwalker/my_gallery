@@ -10,7 +10,6 @@ import 'package:my_gallery/modules/widgets/webviews/common_webview_page.dart';
 import 'package:my_gallery/modules/widgets/style/style.dart';
 import 'package:my_gallery/modules/widgets/empty_placeholder/empty_placeholder_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:my_gallery/common/tools/get_grade/grade_utils.dart';
 
 
@@ -103,7 +102,7 @@ class _UnitTestListState extends State<UnitTestListPage> {
     haveMoreData = true;
     ResponseData responseData = await DaoManager.fetchUnitTestPaperList({"pageSize": pageSize, "currentPage": currentPage});
     isLoading = false;
-    if (responseData != null && responseData.result) {
+    if (responseData.result) {
       if (responseData.code == 200) {
         if (responseData.model != null) {
           var testPaperModel = responseData.model as UnitTestModel?;
@@ -136,7 +135,7 @@ class _UnitTestListState extends State<UnitTestListPage> {
     // 重置当前页
     currentPage = 1;
     ResponseData responseData = await DaoManager.fetchUnitTestPaperList({"pageSize": pageSize, "currentPage": currentPage});
-    if (responseData != null && responseData.result) {
+    if (responseData.result) {
       if (responseData.code == 200) {
         if (responseData.model != null) {
           var testPaperModel = responseData.model as UnitTestModel?;
@@ -177,13 +176,13 @@ class _UnitTestListState extends State<UnitTestListPage> {
     if (currentPage < unitTestModel!.dataSource!.totalPage!) {
       currentPage++;
       ResponseData responseData = await DaoManager.fetchUnitTestPaperList({"pageSize": pageSize, "currentPage": currentPage});
-      if (responseData != null && responseData.result) {
+      if (responseData.result) {
         if (responseData.code == 200) {
           if (responseData.model != null) {
             var testPaperModel = responseData.model as UnitTestModel?;
             setState(() {
               if (testPaperModel!.dataSource!.paperList!.isNotEmpty) {
-                testPaperList!.addAll(testPaperModel!.dataSource!.paperList!);
+                testPaperList!.addAll(testPaperModel.dataSource!.paperList!);
               }
               return null;
             });

@@ -126,7 +126,7 @@ class _FeedBackPageState extends State<FeedBackPage> {
                       style: TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.normal,),
                     ),
                     onPressed: () async {
-                      var content = _controller!.text ?? '';
+                      var content = _controller!.text;
                       if (content.isEmpty) {
                         Fluttertoast.showToast(msg: '反馈内容不能为空');
                         return;
