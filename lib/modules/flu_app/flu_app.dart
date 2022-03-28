@@ -10,7 +10,7 @@ import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
 import 'package:provider/provider.dart';
 
 class FluApp extends StatefulWidget {
-  FluApp({Key? key}){
+  FluApp({Key? key}) : super(key: key){
     /// 初始化时添加第一个页面
     kFluRouterDelegate.push(name: FluRouterPageAPI.splashPage);
   }
@@ -23,8 +23,6 @@ class FluApp extends StatefulWidget {
 class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
 
 
-
-
   @override
   void didHaveMemoryPressure() {
     super.didHaveMemoryPressure();
@@ -33,6 +31,11 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
 
   @override
   void initState() {
+    /// 监听方式1 全局监听
+    kFluRouterDelegate.addListener(() {
+      print("全局监听页面：${kFluRouterDelegate.currentConfiguration}");
+      print("当前最上层页面：${kFluRouterDelegate.currentConfiguration.last.name}");
+    });
     /// 如果组件还挂载在Widget树上
     if (mounted) {
       DeepLinksManager.handleInitialLink();
