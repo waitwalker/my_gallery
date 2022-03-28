@@ -76,21 +76,21 @@ class DeepLinksManager {
     }, cancelOnError: false,);
   }
 
-  /// methodName removeInitialLinkStreamListener
-  /// description 移除监听
+  /// methodName removeLinkStreamListener
+  /// description 移除Link监听
   /// date 2022/3/28 1:35 下午
   /// author LiuChuanan
-  static removeInitialLinkStreamListener() async {
+  static removeLinkStreamListener() async {
     if (_sub != null) {
       _sub?.cancel();
     }
   }
 
-  /// methodName removeIncomingLinkStreamListener
-  /// description 移除监听
+  /// methodName removeUriStreamListener
+  /// description 移除Uri监听
   /// date 2022/3/28 1:35 下午
   /// author LiuChuanan
-  static removeIncomingLinkStreamListener() async {
+  static removeUriStreamListener() async {
     if (_subUri != null) {
       _subUri?.cancel();
     }

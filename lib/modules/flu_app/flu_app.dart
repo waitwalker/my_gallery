@@ -59,4 +59,10 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
     );
   }
 
+  @override
+  void dispose() {
+    DeepLinksManager.removeLinkStreamListener();
+    super.dispose();
+  }
+
 }
