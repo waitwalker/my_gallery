@@ -127,10 +127,10 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
         actions: [
           TextButton(
             onPressed: ()=>Navigator.pop(context,true),
-            child: Text("取消"),),
+            child: const Text("取消"),),
           TextButton(
             onPressed: ()=>Navigator.pop(context,false),
-            child: Text("确定"),),
+            child: const Text("确定"),),
         ],
       );
     });

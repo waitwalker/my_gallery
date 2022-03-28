@@ -99,16 +99,16 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
       bool hasError = homeChangeN.hasError;
       return Scaffold(
         appBar: AppBar(
-          title: Text("首页"),
+          title: const Text("首页"),
           backgroundColor: themeColorList[themeIndex],
         ),
         body: isLoading ? Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+          children: const [
             Center(child: CircularProgressIndicator(),),
         ],) : hasError ? Container(child: InkWell(
-          child: Text("有错误",style: TextStyle(fontSize: 30),),
+          child: const Text("有错误",style: TextStyle(fontSize: 30),),
           onTap: (){
             Provider.of<HomeChangeNotifier>(context, listen: false).loadHomeData(2);
           },
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
           children: [
             Expanded(child: ListView(
               children: [
-                Padding(padding: EdgeInsets.only(top: 20),),
+                const Padding(padding: EdgeInsets.only(top: 20),),
                 InkWell(
                   child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("1.腾讯直播页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("1.腾讯直播页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){

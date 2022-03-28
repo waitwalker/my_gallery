@@ -26,7 +26,6 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
 
   @override
   void didHaveMemoryPressure() {
-    // TODO: implement didHaveMemoryPressure
     super.didHaveMemoryPressure();
   }
 
