@@ -1,8 +1,10 @@
 name: my_gallery
-description: functional assembly
+description: A new Flutter project.
 
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-publish_to: none
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
@@ -16,362 +18,89 @@ publish_to: none
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.16.1 <3.0.0"
 
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
 
-  # 分帧上屏
-  keframe: ^2.0.3
 
-  # 图表
-  fl_chart: ^0.41.0
-
-  # 录屏
-  screen_recorder: ^0.0.3
-  # 截屏
-  screenshot: ^1.2.3
-
-  # debug 调试工具 release模式要关上
-  flutter_ume: ^0.3.0+1
-  flutter_ume_kit_ui: ^0.3.0+1
-  flutter_ume_kit_device: ^0.3.0
-  flutter_ume_kit_perf: ^0.3.0
-  flutter_ume_kit_show_code: ^0.3.0
-  flutter_ume_kit_console: ^0.3.0
-  flutter_ume_kit_dio: ^0.3.0
-
-  # Service loader 框架 类似于中介者模式
-  get_it: ^7.2.0
-  # 随机颜色
-  random_color: ^1.0.6-nullsafety
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
 
   # 广告融合集成
   flutter_universalad: ^1.0.10
 
-  #  shared_preferences: ^2.0.5
-  #  provider: ^5.0.0
-  crypto: ^3.0.1
-  #  dio: ^4.0.0
-  #  badges: ^2.0.1
-  flutter_bugly: ^0.4.3
-  #  permission_handler: ^7.1.0
-  #  fluttertoast: ^8.0.6
-  #  url_launcher: ^6.0.3
-  #  flutter_easyrefresh: ^2.1.8
-  replay_kit_launcher: ^0.3.0
-  flutter_styled_toast: ^2.0.0
-
-  # 高德地图在项目中Android部分有些问题
-  #  amap_flutter_map: ^3.0.0
-  #  amap_flutter_location: ^3.0.0
-
-  #    git:
-  #      url: https://github.com/waitwalker/amap_flutter_location.git
-  #      ref: 'main'
-  #  amap_flutter_map:
-  #    git:
-  #      url: https://github.com/waitwalker/amap_flutter_map.git
-  #      ref: 'main'
-
-  #  azlistview: ^1.1.1
-  # 滚动定位列表 按距离滚动到指定位置 按索引滚动到指定位置
-  scrollable_positioned_list: ^0.2.3
-  # 状态管理
+  image: ^3.1.3
+  # 图标
+  fl_chart: ^0.41.0
+  webview_flutter: ^3.0.1
+  flutter_svg: ^1.0.3
+  fluttertoast: ^8.0.9
   provider: ^6.0.2
-  cupertino_icons: ^1.0.2
-
-  flutter_advanced_segment: ^2.0.1+1
-  # 屏幕方向
-  orientation: ^1.3.0
-
-  # 滴滴 apm工具 现在路由有bug 先暂停使用
-  #dokit: ^0.2.5
-
-  # 系统分享插件
-  share_extend: ^2.0.0
-
-  # 字体icon
-  font_awesome_flutter: ^9.0.0
-
-  # 保存图片到相册
-  # image_gallery_saver: ^1.6.9
-  image_gallery_saver:
-    git:
-      url: https://github.com/waitwalker/image_gallery_saver.git
-      ref: 'master'
-
-  # json格式
-  json_annotation: ^4.0.1
-
-  # 轻量存储
-  shared_preferences: ^2.0.5
-
-  # 汉字转拼音
-  lpinyin: ^2.0.2
-
-  # 获取文件系统存储路径
-  path_provider: ^2.0.1
-
-  # 动画库 需要去flare网站生成动画&导出 暂时没有引用到该库
-  flare_flutter: ^3.0.0
-
-  # 图片的加载写入 要和系统提供的显示库区别
-  image: ^3.0.2
-
-  # toast 弹框
-  # fluttertoast: ^8.0.7
-  fluttertoast:
-    git:
-      url: https://github.com/waitwalker/FlutterToast.git
-      ref: 'master'
-
-  # 图片压缩
-  flutter_image_compress: ^1.0.0
-  flutter_native_image: ^0.0.6
-
-  # 获取图片 size(width & height)
-  image_size_getter: ^1.0.0
-  # 加载圈
-  flutter_easyloading: ^3.0.0
-  # 日志输出
-  logging: ^1.0.1
-  # 日志信息输出
-  logger: ^1.0.0
-  # 网络连接状态
-  connectivity: ^3.0.6
-  # 响应式
-  flutter_redux: ^0.8.2
-  # 全局事件总线
-  event_bus:  ^2.0.0
-  #常用加载动画
-  flutter_spinkit: ^5.0.0
-  # lottie 动画加载工具
-  lottie: ^1.0.1
-  # 刷新控件
-  flutter_easyrefresh: ^2.2.1
-  # 相机&相册
-  image_picker: ^0.7.4
-  # 图片裁剪
-  image_cropper: ^1.4.0
-  # 获取权限
-  permission_handler: ^6.1.3
-  # 获取应用信息
-  package_info: ^2.0.0
-  # 获取设备信息
-  device_info: ^2.0.0
-  # 国际化
-  flutter_localizations:
-    sdk: flutter
-  intl_translation:
-    git:
-      url: https://github.com/waitwalker/intl_translation.git
-      ref: 'main'
-
-  # 列表式加载占位
-  shimmer: ^2.0.0
-
-  # webview 设置ua
-  fk_user_agent: ^2.0.1
-
-  # 贝塞尔曲线
-  path_drawing: ^0.5.0
-  # svg 加载工具
-  flutter_svg: ^0.21.0+1
-  # 日期格式化
-  date_format: ^2.0.2
-
-  # 日历控件
-  table_calendar: ^3.0.0
-  # 大图预览
-  photo_view: ^0.12.0
-  # 网络请求库
-  http: ^0.13.1
-
-  # 下拉菜单
-  gzx_dropdown_menu: ^3.1.0
-
-  # 下拉刷新
-  pull_to_refresh: ^2.0.0
-
-  # 打开文件
-  open_file: ^3.1.0
-
-  # 网络请求库
-  dio: ^4.0.0
-
-  url_launcher: ^6.0.3
-
-  # 唯一
-  flutter_udid: ^2.0.0
-
-  #日期选择器 已适配 null safety
-  #  flutter_datetime_picker: ^1.5.0
-  flutter_datetime_picker:
-    git:
-      url: https://github.com/AlexHartford/flutter_datetime_picker.git
-      ref: 'master'
-
-  # pdf预览 已适配 null safety
-  pdf_viewer_plugin:
-    git:
-      url: https://github.com/waitwalker/pdf_viewer_plugin.git
-      ref: 'main'
-
-  # 播放器皮肤 已适配 null safety
-  chewie:
-    git:
-      url: https://github.com/waitwalker/chewie_flutter_2.git
-      ref: 'main'
-
-  # fork 使用官方 已适配 null safety
-  jpush_flutter:
-    git:
-      url: https://github.com/waitwalker/jpush_flutter_2.git
-      ref: 'main'
-
-  # 获取渠道 已适配 null safety
-  package_channels:
-    git:
-      url: https://github.com/waitwalker/package_channels.git
-      ref: 'master'
-
-  # 友盟统计 自己封装 已适配 null safety
-  umeng_plugin:
-    git:
-      url: https://github.com/waitwalker/umeng_plugin.git
-      ref: 'master'
-
-  # 明文保存密码修复 已适配 null safety
-  webview_flutter:
-    git:
-      url: https://github.com/waitwalker/webview_flutter.git
-      #ref: 'master'
-      ref: '57c639ebd4f05c6956821722cd496ea5496fd44c'
-
-  # 视频 已适配 null safety
-  videoplayer:
-    git:
-      url: https://github.com/waitwalker/video_player_flutter_2.git
-      ref: 'main'
-
-  # 已经fork最新版本 明文保存密码修复 已适配 null safety
-  flutter_webview_plugin:
-    git:
-      url: https://github.com/waitwalker/flutter_webview_plugin.git
-      ref: 'master'
-      #ref: 'ade48355af3827151b307dc3860bac5be46ed375'
-
-  picture_verification_code: ^1.0.0
-
-
-
-  # ********************* common app ***********************
-  # ********************* common app ***********************
-  # 生成二维码
-  qr_flutter: ^4.0.0
-
-  # 列表左划右划删除
-  flutter_slidable: ^0.6.0
-
-  # 加密解密
-  cryptography: ^2.0.1
-
-  # 角标
-  badges: ^2.0.0-nullsafety.1
-
-  # 3D transition效果
-  #cube_transition: ^1.0.2
-
-  # 图片多选
-  #  multi_image_picker: ^4.8.0
-
-  # 原点边框
-  dotted_border: ^2.0.0
-
-  # 获取点击位置
-  positioned_tap_detector_2: ^1.0.0
-
-  # 获取通知权限
-  # notification_permissions: ^0.5.0
-  notification_permissions:
-    git:
-      url: https://github.com/waitwalker/flutter_notification_permissions.git
-      ref: 'master'
-
-  # 图片处理 缓存&错误&占位等功能
-  octo_image: ^1.0.0
-  cached_network_image: ^3.0.0
-  rflutter_alert: ^2.0.2
-
-  # 屏幕长亮 不息屏
-  wakelock: ^0.5.2
-  # ********************* common app ***********************
-  # ********************* common app ***********************
-
-
-  ###################### 暂时没有升级,因为没法升级或者已经最新 2020之前库 ########################
-  ###################### 暂时没有升级,因为没法升级或者已经最新 2020之前库 ########################
-  # 加密 暂时未升级
-  encrypt: ^5.0.1
-  #pointycastle: ^3.3.4
-
-  # 对象相等性比较
-  equatable: ^2.0.0
-  # 保存图片到相册 这个库和image_picker 冲突
-  # https://stackoverflow.com/questions/60925195/flutter-image-picker-crash
-  #image_picker_saver: ^0.3.0
-
-  # 屏幕长亮
-  # screen: ^0.0.5
-  screen:
-    git:
-      url: https://github.com/waitwalker/flutter_screen.git
-      ref: 'master'
-
-  # 响应式
-  rxdart: ^0.26.0
-  ###################### 暂时没有升级,因为没法升级或者已经最新 2020之前库 ########################
-  ###################### 暂时没有升级,因为没法升级或者已经最新 2020之前库 ########################
-
-
-  ###################### 暂时没有用到的库,但是很好 ########################
-  ###################### 暂时没有用到的库,但是很好 ########################
-  # Quiver is a set of utility libraries for Dart that makes using many Dart libraries easier and more convenient, or adds additional functionality.
-  quiver: ^3.0.0
-
-  # 转场动画
-  page_transition: ^2.0.1-nullsafety.0
-  ###################### 暂时没有用到的库,但是很好 ########################
-  ###################### 暂时没有用到的库,但是很好 ########################
-  collection: ^1.15.0-nullsafety.4
-
+  event_bus: ^2.0.0
+  lpinyin: ^2.0.3
+  scrollable_positioned_list: ^0.2.3
+  get_it: ^7.2.0
+  random_color: ^1.0.6-nullsafety
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.12.2
-  json_serializable: ^4.1.0
 
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  # 代码检查工具
+  flutter_lints: ^1.0.0
 
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
 flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
   uses-material-design: true
 
-  assets:
-    - static/images/2.0x/
-    - static/images/3.0x/
-    - static/images/
-    - static/svgs/
-    - static/data/
-    - assets/
-    - assets/images/
-    - assets/images/callingDemo/
-    - assets/images/liveRoom/
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
 
-  fonts:
-    - family: aliIconFont
-      fonts:
-        - asset: static/font/iconfont.ttf
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
 
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
 
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
