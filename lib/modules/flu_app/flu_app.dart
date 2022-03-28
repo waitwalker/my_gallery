@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_gallery/modules/flu_app/common/deep_links/deep_links_manager.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_page.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_change_notifier.dart';
@@ -32,11 +33,11 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
 
   @override
   void initState() {
-    /// 监听方式1 全局监听
-    kFluRouterDelegate.addListener(() {
-      print("全局监听页面：${kFluRouterDelegate.currentConfiguration}");
-      print("当前最上层页面：${kFluRouterDelegate.currentConfiguration.last.name}");
-    });
+    /// 如果组件还挂载在Widget树上
+    if (mounted) {
+      DeepLinksManager.handleInitialLink();
+      DeepLinksManager.handleIncomingLinks();
+    }
     super.initState();
   }
 

@@ -19,6 +19,7 @@ class DeepLinksManager {
       print("传递进来的链接：$initialLink");
       if (initialLink != null) {
         /// 处理页面跳转
+        print("初始化link:$initialLink");
       }
     } on PlatformException {
       initialLink = "";
@@ -34,6 +35,7 @@ class DeepLinksManager {
   static handleIncomingLinks() async {
     _sub = linkStream.listen((event) {
       /// 处理跳转
+      print("App 打开状态下传进来的link:$event");
     },
       onError: (error){},
       onDone: (){},
