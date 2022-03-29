@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:my_gallery/modules/flu_app/common/event/common_event_manager.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
-import 'package:my_gallery/modules/flu_app/inherited_widget/inherited_widget_page.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
 import 'package:my_gallery/modules/flu_app/router/router_delegate_manager.dart';
 import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
@@ -131,12 +130,15 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.tLoginPage);
+                    // kFluRouterDelegate.push(name: FluRouterPageAPI.tLoginPage);
+                    CommonEventManager.coinEventAction(context: context, title: "Quer mais ouro?", content: "3000～5000", subTitle: "Assista aos anúncios", buttonTitle: "Assista agora", onTap: (){
+                      Navigator.pop(context);
+                    });
                   },
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -144,7 +146,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("2.Isolate页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("2.Isolate页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -161,7 +163,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("3.联系人列表页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("3.联系人列表页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -178,7 +180,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("4.PlatformView页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("4.PlatformView页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
