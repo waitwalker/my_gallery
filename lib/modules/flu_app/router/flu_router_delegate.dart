@@ -23,7 +23,7 @@ import 'package:my_gallery/modules/flu_app/notification/notification_page.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_page.dart';
 import 'package:my_gallery/modules/flu_app/platform_view/platform_view_page.dart';
 import 'package:my_gallery/modules/flu_app/router/router_delegate_manager.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/meituan_shop_page.dart';
+import 'package:my_gallery/modules/flu_app/sliver_module/shop/complexity_scrollview_page.dart';
 import 'package:my_gallery/modules/flu_app/sliver_module/sliver_appbar_page.dart';
 import 'package:my_gallery/modules/flu_app/sliver_module/sliver_custom_header_page.dart';
 import 'package:my_gallery/modules/flu_app/sliver_module/sliver_entrance_page.dart';
@@ -123,7 +123,7 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
     print(navigatorKey.currentState!.context);
     final result = await showDialog<bool>(context: navigatorKey.currentContext!, builder: (context){
       return AlertDialog(
-        content: Text("确定要退出APP吗"),
+        content: const Text("确定要退出APP吗"),
         actions: [
           TextButton(
             onPressed: ()=>Navigator.pop(context,true),
@@ -171,7 +171,7 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
     Widget childPage;
     switch (routeSettings.name){
       case FluRouterPageAPI.bottomNavigationBarPage:
-        childPage = FluBottomNavigationBarPage();
+        childPage = const FluBottomNavigationBarPage();
         break;
       case FluRouterPageAPI.homePage:
         childPage = HomePage();
@@ -219,7 +219,7 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
         childPage = SliverCustomHeaderPage();
         break;
       case FluRouterPageAPI.meituanShopPage:
-        childPage = MeituanShopPage();
+        childPage = const ComplexityScrollViewPage();
         break;
       case FluRouterPageAPI.tabBarPage:
         childPage = TabBarPage();

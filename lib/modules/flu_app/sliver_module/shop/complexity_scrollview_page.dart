@@ -10,14 +10,14 @@ MediaQueryData? mediaQuery;
 double? statusBarHeight;
 double? screenHeight;
 
-class MeituanShopPage extends StatefulWidget {
-  MeituanShopPage({Key? key}) : super(key: key);
+class ComplexityScrollViewPage extends StatefulWidget {
+  const ComplexityScrollViewPage({Key? key}) : super(key: key);
 
   @override
-  _MeituanShopPageState createState() => _MeituanShopPageState();
+  _ComplexityScrollViewPageState createState() => _ComplexityScrollViewPageState();
 }
 
-class _MeituanShopPageState extends State<MeituanShopPage>
+class _ComplexityScrollViewPageState extends State<ComplexityScrollViewPage>
     with SingleTickerProviderStateMixin {
   ///页面滑动协调器
   ShopScrollCoordinator? _shopCoordinator;
@@ -54,11 +54,11 @@ class _MeituanShopPageState extends State<MeituanShopPage>
         onPointerUp: _shopCoordinator!.onPointerUp,
         child: CustomScrollView(
           controller: _pageScrollController,
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           slivers: <Widget>[
             SliverAppBar(
               pinned: true,
-              title: Text("店铺首页", style: TextStyle(color: Colors.white)),
+              title: const Text("店铺首页", style: TextStyle(color: Colors.white)),
               backgroundColor: Colors.blue,
               expandedHeight: _sliverAppBarMaxHeight,
             ),
@@ -68,7 +68,7 @@ class _MeituanShopPageState extends State<MeituanShopPage>
               delegate: _SliverAppBarDelegate(
                 maxHeight: 100,
                 minHeight: 100,
-                child: Center(child: Text("我是活动Header")),
+                child: const Center(child: Text("我是活动Header")),
               ),
             ),
             SliverPersistentHeader(
@@ -82,7 +82,7 @@ class _MeituanShopPageState extends State<MeituanShopPage>
                   child: TabBar(
                     labelColor: Colors.black,
                     controller: _tabController,
-                    tabs: <Widget>[
+                    tabs: const <Widget>[
                       Tab(text: "商品"),
                       Tab(text: "评价"),
                       Tab(text: "商家"),
@@ -97,7 +97,7 @@ class _MeituanShopPageState extends State<MeituanShopPage>
                 children: <Widget>[
                   Page1(shopCoordinator: _shopCoordinator),
                   Page2(shopCoordinator: _shopCoordinator),
-                  Page3(),
+                  const Page3(),
                 ],
               ),
             )
@@ -127,7 +127,7 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final Widget child;
 
   @override
-  double get minExtent => this.minHeight;
+  double get minExtent => minHeight;
 
   @override
   double get maxExtent => max(maxHeight, minHeight);

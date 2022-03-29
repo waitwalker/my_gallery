@@ -4,6 +4,8 @@ import 'package:my_gallery/modules/flu_app/message_module/contact_page.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_page.dart';
 
 class FluBottomNavigationBarPage extends StatefulWidget {
+  const FluBottomNavigationBarPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _FluBottomNavigationBarPageState();
@@ -34,7 +36,7 @@ class _FluBottomNavigationBarPageState extends State<FluBottomNavigationBarPage>
           });
         },
         type: BottomNavigationBarType.fixed,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             label: "首页",
             icon: Icon(Icons.home),
