@@ -134,6 +134,9 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     CommonEventManager.coinEventAction(context: context, title: "Quer mais ouro?", content: "3000～5000", subTitle: "Assista aos anúncios", buttonTitle: "Assista agora", onTap: (){
                       Navigator.pop(context);
                     });
+                    // CommonEventManager.rewardEventAction(context: context, title: "Parabéns", content: "30000", buttonTitle: "Assista ao vídeo e ganhe 200% a mais", imagePath: "static/images/dialog_bg_common_icon.webp", onTap: (){
+                    //   Navigator.pop(context);
+                    // });
                   },
                 ),
 

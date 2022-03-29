@@ -254,7 +254,7 @@ class DialogPage extends StatelessWidget {
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Center(
                     child: Container(
@@ -270,62 +270,69 @@ class DialogPage extends StatelessWidget {
                     ),
                   ),
 
-                  Padding(
-                    padding: const EdgeInsets.only(top: 17, right: 10, left: 10,),
-                    child: Text(
-                      title!,
-                      maxLines: 1,
-                      style: const TextStyle(
-                        fontSize: 19,
-                        color: Colors.green,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.only(top: 9, left: 10, right: 10,),
-                    child: Text(
-                      content!,
-                      maxLines: 2,
-                      style: const TextStyle(
-                        fontSize: 33,
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-
-                  const Padding(padding: EdgeInsets.only(top: 45)),
-
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 33,
-                      right: 33,
-                    ),
-                    child: InkWell(
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 52,
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.circular(8.0),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 12, right: 10, left: 10,),
+                        child: Text(
+                          title!,
+                          maxLines: 1,
+                          style: const TextStyle(
+                            fontSize: 19,
+                            color: Colors.green,
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
-                        child: Padding(padding: const EdgeInsets.only(left: 5, right: 5),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10,),
+                        child: SizedBox(
+                          height: 80,
                           child: Text(
-                            buttonTitle!,
+                            content!,
                             maxLines: 2,
-                            textAlign: TextAlign.center,
                             style: const TextStyle(
-                              fontSize: 16,
+                              height: 1,
+                              fontSize: 33,
+                              color: Colors.green,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
                             ),
                           ),
                         ),
                       ),
-                      onTap: eventAction2,
-                    ),
+
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          bottom: 26,
+                          left: 33,
+                          right: 33,
+                        ),
+                        child: InkWell(
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 52,
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(padding: const EdgeInsets.only(left: 5, right: 5),
+                              child: Text(
+                                buttonTitle!,
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          onTap: eventAction2,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
