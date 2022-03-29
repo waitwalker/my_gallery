@@ -7,6 +7,8 @@ import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _HomePageState();
@@ -118,7 +120,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
               children: [
                 const Padding(padding: EdgeInsets.only(top: 20),),
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -130,10 +132,10 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    // kFluRouterDelegate.push(name: FluRouterPageAPI.tLoginPage);
-                    CommonEventManager.coinEventAction(context: context, title: "Quer mais ouro?", content: "3000～5000", subTitle: "Assista aos anúncios", buttonTitle: "Assista agora", onTap: (){
-                      Navigator.pop(context);
-                    });
+                    kFluRouterDelegate.push(name: FluRouterPageAPI.orderPage);
+                    // CommonEventManager.coinEventAction(context: context, title: "Quer mais ouro?", content: "3000～5000", subTitle: "Assista aos anúncios", buttonTitle: "Assista agora", onTap: (){
+                    //   Navigator.pop(context);
+                    // });
                     // CommonEventManager.rewardEventAction(context: context, title: "Parabéns", content: "30000", buttonTitle: "Assista ao vídeo e ganhe 200% a mais", imagePath: "static/images/dialog_bg_common_icon.webp", onTap: (){
                     //   Navigator.pop(context);
                     // });
@@ -158,7 +160,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -175,7 +177,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -191,7 +193,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                   },
                 ),
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -199,7 +201,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("5.Notification页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("5.Notification页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -208,7 +210,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -216,7 +218,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("6.mixin页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("6.mixin页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -225,7 +227,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -233,7 +235,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("7.动画页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("7.动画页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -242,15 +244,15 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: Color(0xFFC0CA33),
+                        color: const Color(0xFFC0CA33),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("8.事件穿透页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("8.事件穿透页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -259,7 +261,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -267,7 +269,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("9.广告页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("9.广告页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -276,7 +278,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -284,7 +286,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("10.Sliver页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("10.Sliver页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -293,7 +295,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -301,7 +303,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("11.TabBar页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("11.TabBar页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -310,7 +312,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -318,7 +320,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("12.Chart页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("12.Chart页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -335,7 +337,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("13.贝壳优化ListView页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("13.贝壳优化ListView页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
@@ -344,7 +346,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                 ),
 
                 InkWell(
-                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                  child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -352,7 +354,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("14.绘制入口页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: const Text("14.绘制入口页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){

@@ -30,6 +30,7 @@ import 'package:my_gallery/modules/flu_app/sliver_module/sliver_entrance_page.da
 import 'package:my_gallery/modules/flu_app/sliver_module/sliver_list_page.dart';
 import 'package:my_gallery/modules/flu_app/sliver_module/sliver_sticky_page.dart';
 import 'package:my_gallery/modules/flu_app/splash_module/splash_page.dart';
+import 'package:my_gallery/modules/flu_app/store/order/order_page.dart';
 // import 'package:my_gallery/modules/flu_app/t_live/TRTCLiveRoomDemo/ui/list/LiveRoomCreate.dart';
 // import 'package:my_gallery/modules/flu_app/t_live/TRTCLiveRoomDemo/ui/list/LiveRoomList.dart';
 // import 'package:my_gallery/modules/flu_app/t_live/TRTCLiveRoomDemo/ui/room/LiveRoomPage.dart';
@@ -223,6 +224,9 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
         break;
       case FluRouterPageAPI.tabBarPage:
         childPage = TabBarPage();
+        break;
+      case FluRouterPageAPI.orderPage:
+        childPage = const OrderPage();
         break;
       case FluRouterPageAPI.keFramePage:
         childPage = KeFrameListViewPage();

@@ -81,6 +81,9 @@ class FluRouterPageAPI {
   /// tabBar 页面
   static const String tabBarPage = "/home/tabBarPage";
 
+  /// order 页面
+  static const String orderPage = "/home/orderPage";
+
   /// chart 页面
   static const String chartPage = "/home/chartPage";
 
