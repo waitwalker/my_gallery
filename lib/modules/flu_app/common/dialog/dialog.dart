@@ -366,28 +366,34 @@ class DialogPage extends StatelessWidget {
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const Padding(padding: EdgeInsets.only(top: 116)),
-
-              const Text("更新",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
+              const Padding(
+                padding: EdgeInsets.only(
+                  bottom: 58,
+                  left: 10,
+                  right: 10,
+                ),
+                child: Text("更新",
+                  maxLines: 1,
+                  style: TextStyle(
+                    height: 1,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                  ),
                 ),
               ),
-
-              const Padding(padding: EdgeInsets.only(top: 60)),
 
               Padding(
                 padding: const EdgeInsets.only(
                   left: 22,
                   right: 22,
-                  // top: 65.h,
+                  bottom: 12,
                 ),
-                child: SizedBox(
-                  height: 130,
+                child: Container(
+                  color: Colors.orange,
+                  height: 125,
                   child: ListView(
                     children: [
                       Text(title!,
@@ -398,9 +404,11 @@ class DialogPage extends StatelessWidget {
                           fontSize: 15,
                         ),
                       ),
+                      const Padding(padding: EdgeInsets.only(bottom: 10)),
                       Text(
                         content!,
                         style: const TextStyle(
+                          height: 1,
                           color: Colors.black,
                           fontSize: 14,
                         ),
@@ -414,7 +422,7 @@ class DialogPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                   left: 22,
                   right: 22,
-                  top: 15
+                  bottom: 25,
                 ),
                 child: Row(
                   children: [
