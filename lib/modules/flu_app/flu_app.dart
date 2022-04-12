@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:my_gallery/modules/flu_app/animation/position_animation_view_model.dart';
+=======
+import 'package:my_gallery/modules/flu_app/common/deep_links/deep_links_manager.dart';
+>>>>>>> c38a3401873681cb3adbe3cd35d1ffea3e60921f
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_page.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_change_notifier.dart';
@@ -10,7 +14,7 @@ import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
 import 'package:provider/provider.dart';
 
 class FluApp extends StatefulWidget {
-  FluApp({Key? key}){
+  FluApp({Key? key}) : super(key: key){
     /// 初始化时添加第一个页面
     kFluRouterDelegate.push(name: FluRouterPageAPI.splashPage);
   }
@@ -23,11 +27,8 @@ class FluApp extends StatefulWidget {
 class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
 
 
-
-
   @override
   void didHaveMemoryPressure() {
-    // TODO: implement didHaveMemoryPressure
     super.didHaveMemoryPressure();
   }
 
@@ -39,6 +40,11 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
       print("全局监听页面：${kFluRouterDelegate.currentConfiguration}");
       print("当前最上层页面：${kFluRouterDelegate.currentConfiguration.last.name}");
     });
+    /// 如果组件还挂载在Widget树上
+    if (mounted) {
+      DeepLinksManager.handleInitialLink();
+      DeepLinksManager.handleIncomingLinks();
+    }
     super.initState();
   }
 
@@ -59,6 +65,12 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
         // ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    DeepLinksManager.removeLinkStreamListener();
+    super.dispose();
   }
 
 }

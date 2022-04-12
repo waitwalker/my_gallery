@@ -1,6 +1,6 @@
 # my_gallery
 
-functional assembly
+A new Flutter project.
 
 ## Getting Started
 

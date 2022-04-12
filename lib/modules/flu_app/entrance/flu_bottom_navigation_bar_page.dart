@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_page.dart';
 import 'package:my_gallery/modules/flu_app/message_module/contact_page.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_page.dart';
 
 class FluBottomNavigationBarPage extends StatefulWidget {
+  const FluBottomNavigationBarPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _FluBottomNavigationBarPageState();
@@ -24,6 +27,14 @@ class _FluBottomNavigationBarPageState extends State<FluBottomNavigationBarPage>
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(
+      BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width,
+          maxHeight: MediaQuery.of(context).size.height),
+      designSize: const Size(375, 812),
+      context: context,
+      minTextAdapt: true,
+    );
     return Scaffold(
       body: pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -34,7 +45,7 @@ class _FluBottomNavigationBarPageState extends State<FluBottomNavigationBarPage>
           });
         },
         type: BottomNavigationBarType.fixed,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             label: "首页",
             icon: Icon(Icons.home),

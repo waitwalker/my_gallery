@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/shop_scroll_controller.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/shop_scroll_coordinator.dart';
 
 class Page3 extends StatefulWidget {
   const Page3({Key? key}) : super(key: key);
@@ -12,7 +10,7 @@ class Page3 extends StatefulWidget {
 class _Page3State extends State<Page3> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("店铺信息页面"),
     );
   }
