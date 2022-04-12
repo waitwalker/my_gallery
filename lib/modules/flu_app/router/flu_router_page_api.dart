@@ -84,6 +84,9 @@ class FluRouterPageAPI {
   /// chart 页面
   static const String chartPage = "/home/chartPage";
 
+  /// positionAnimationPage 页面
+  static const String positionAnimationPage = "/home/positionAnimationPage";
+
   /// 底部导航容器页
   static const String bottomNavigationBarPage = "/bottom_navigation_bar";
 

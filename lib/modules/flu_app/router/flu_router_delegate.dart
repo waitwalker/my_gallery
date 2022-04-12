@@ -3,6 +3,7 @@ import 'package:my_gallery/modules/flu_app/ad/ad_page.dart';
 import 'package:my_gallery/modules/flu_app/ad/ad_splash_page.dart';
 import 'package:my_gallery/modules/flu_app/animation/animation_page.dart';
 import 'package:my_gallery/modules/flu_app/animation/hero_page.dart';
+import 'package:my_gallery/modules/flu_app/animation/position_animation.dart';
 import 'package:my_gallery/modules/flu_app/canvas/canvas_entrance_page.dart';
 import 'package:my_gallery/modules/flu_app/canvas/paint_3_page.dart';
 import 'package:my_gallery/modules/flu_app/canvas/paint_4_page.dart';
@@ -196,6 +197,9 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
         break;
       case FluRouterPageAPI.eventPenetrationPage:
         childPage = EventPenetrationPage();
+        break;
+      case FluRouterPageAPI.positionAnimationPage:
+        childPage = PositionAnimationPage();
         break;
       case FluRouterPageAPI.adPage:
         childPage = ADPage();

@@ -354,6 +354,23 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     kFluRouterDelegate.push(name: FluRouterPageAPI.canvasPage);
                   },
                 ),
+
+                InkWell(
+                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      width: MediaQuery.of(context).size.width, height: 60,
+                      child: Text("15.PositionAnimation页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                    ),
+                  ),
+                  onTap: (){
+                    kFluRouterDelegate.push(name: FluRouterPageAPI.positionAnimationPage);
+                  },
+                ),
                 // InheritedWidgetPage(
                 //   child: Text("${(context.getElementForInheritedWidgetOfExactType<InheritedWidgetPage>() as InheritedElementPage).value}"),
                 // ),

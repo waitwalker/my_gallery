@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_gallery/modules/flu_app/animation/position_animation_view_model.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_page.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_change_notifier.dart';
@@ -48,6 +49,7 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
         ChangeNotifierProvider(create: (context) => ThemeChangeNotifier()),
         ChangeNotifierProvider(create: (context) => HomeChangeNotifier()),
         ChangeNotifierProvider(create: (context) => PersonalChangeNotifier()),
+        ChangeNotifierProvider(create: (context) => PositionAnimationViewModel()),
       ],
       child: MaterialApp.router(
         routeInformationParser: FluRouteInformationParser(),
