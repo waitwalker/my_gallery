@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:my_gallery/modules/flu_app/animation/position_animation_view_model.dart';
-=======
 import 'package:my_gallery/modules/flu_app/common/deep_links/deep_links_manager.dart';
->>>>>>> c38a3401873681cb3adbe3cd35d1ffea3e60921f
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_page.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_change_notifier.dart';
