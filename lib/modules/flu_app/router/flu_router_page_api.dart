@@ -128,9 +128,7 @@ class FluRouterPageAPI {
   }
   static FluRouterPageAPI? _sharedInstance;
   static FluRouterPageAPI? _getInstance() {
-    if (_sharedInstance == null) {
-      _sharedInstance = FluRouterPageAPI._internal();
-    }
+    _sharedInstance ??= FluRouterPageAPI._internal();
     return _sharedInstance;
   }
 

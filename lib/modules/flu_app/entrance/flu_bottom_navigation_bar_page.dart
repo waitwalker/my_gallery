@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_page.dart';
@@ -45,16 +46,24 @@ class _FluBottomNavigationBarPageState extends State<FluBottomNavigationBarPage>
           });
         },
         type: BottomNavigationBarType.fixed,
-        items: const [
+        items: [
           BottomNavigationBarItem(
             label: "首页",
-            icon: Icon(Icons.home),
+            icon: Badge(
+              position: BadgePosition.topEnd(top: -10, end: -25),
+              badgeContent: const Text(
+                "99+",
+                style: TextStyle(color: Colors.white),
+              ),
+              child: const Icon(Icons.home),
+            ),
           ),
-          BottomNavigationBarItem(
+
+          const BottomNavigationBarItem(
             label: "联系人",
             icon: Icon(Icons.contact_mail),
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             label: "我的",
             icon: Icon(Icons.person),
           ),

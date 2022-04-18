@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:my_gallery/modules/flu_app/animation/position_animation_view_model.dart';
 import 'package:my_gallery/modules/flu_app/common/deep_links/deep_links_manager.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
-import 'package:my_gallery/modules/flu_app/home_module/home_page.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_route_information_parser.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
