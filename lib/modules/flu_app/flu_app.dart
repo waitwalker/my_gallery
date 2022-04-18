@@ -5,6 +5,7 @@ import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart
 import 'package:my_gallery/modules/flu_app/personal/personal_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_route_information_parser.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
+import 'package:my_gallery/modules/flu_app/router/navigator_view_model.dart';
 import 'package:my_gallery/modules/flu_app/router/router_delegate_manager.dart';
 import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
 import 'package:provider/provider.dart';
@@ -52,6 +53,7 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
         ChangeNotifierProvider(create: (context) => HomeChangeNotifier()),
         ChangeNotifierProvider(create: (context) => PersonalChangeNotifier()),
         ChangeNotifierProvider(create: (context) => PositionAnimationViewModel()),
+        ChangeNotifierProvider(create: (context) => NavigatorViewModel()),
       ],
       child: MaterialApp.router(
         routeInformationParser: FluRouteInformationParser(),

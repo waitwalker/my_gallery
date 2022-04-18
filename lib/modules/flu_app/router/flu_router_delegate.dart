@@ -176,7 +176,7 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
         childPage = const FluBottomNavigationBarPage();
         break;
       case FluRouterPageAPI.homePage:
-        childPage = HomePage();
+        childPage = const HomePage();
         break;
       case FluRouterPageAPI.isolatePage:
         childPage = IsolatePage();

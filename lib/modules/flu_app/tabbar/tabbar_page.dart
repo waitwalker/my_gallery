@@ -10,7 +10,7 @@ class TabBarPage extends StatefulWidget {
 
 class _TabBarPageState extends State<TabBarPage> with TickerProviderStateMixin{
 
-  List<String> _titles = ["关注","推荐","教育","本地","精品课","旅游"];
+  final List<String> _titles = ["关注","推荐","教育","本地","精品课","旅游"];
   TabController? _tabController;
   late PageController _pageController;
 

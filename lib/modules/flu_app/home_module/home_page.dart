@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_gallery/modules/flu_app/common/event/common_event_manager.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
+import 'package:my_gallery/modules/flu_app/router/navigator_view_model.dart';
 import 'package:my_gallery/modules/flu_app/router/router_delegate_manager.dart';
 import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
 import 'package:provider/provider.dart';
@@ -132,7 +133,8 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.orderPage);
+                    Provider.of<NavigatorViewModel>(context,listen: false).setHomeTabCount(50);
+                    // kFluRouterDelegate.push(name: FluRouterPageAPI.orderPage);
                     // CommonEventManager.coinEventAction(context: context, title: "Quer mais ouro?", content: "3000～5000", subTitle: "Assista aos anúncios", buttonTitle: "Assista agora", onTap: (){
                     //   Navigator.pop(context);
                     // });
