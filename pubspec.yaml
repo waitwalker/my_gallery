@@ -57,6 +57,9 @@ dependencies:
   flutter_screenutil: ^5.3.1
   # 角标组件
   badges: ^2.0.2
+  # 贝壳开源的widget
+  #https://bruno.ke.com/page/widgets/brn-doughnut-chart
+  bruno: ^2.1.1
 
 dev_dependencies:
   flutter_test:
