@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_gallery/modules/flu_app/store/order/order_list_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/store/order/order_list_page.dart';
 
 /// @fileName order_page.dart
 /// @description 订单页面 包含：购买；充值；体现 三个订单列表页面

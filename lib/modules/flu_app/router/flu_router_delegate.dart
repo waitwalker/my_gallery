@@ -28,12 +28,12 @@ import 'package:my_gallery/modules/flu_app/home_module/sliver_module/sliver_cust
 import 'package:my_gallery/modules/flu_app/home_module/sliver_module/sliver_entrance_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/sliver_module/sliver_list_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/sliver_module/sliver_sticky_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/store/order/order_page.dart';
 import 'package:my_gallery/modules/flu_app/message_module/chat_page.dart';
 import 'package:my_gallery/modules/flu_app/message_module/contact_page.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_page.dart';
 import 'package:my_gallery/modules/flu_app/router/router_delegate_manager.dart';
 import 'package:my_gallery/modules/flu_app/splash_module/splash_page.dart';
-import 'package:my_gallery/modules/flu_app/store/order/order_page.dart';
 // import 'package:my_gallery/modules/flu_app/t_live/TRTCLiveRoomDemo/ui/list/LiveRoomCreate.dart';
 // import 'package:my_gallery/modules/flu_app/t_live/TRTCLiveRoomDemo/ui/list/LiveRoomList.dart';
 // import 'package:my_gallery/modules/flu_app/t_live/TRTCLiveRoomDemo/ui/room/LiveRoomPage.dart';
