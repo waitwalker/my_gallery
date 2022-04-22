@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../router/flu_router_page_api.dart';
-import '../router/router_delegate_manager.dart';
-
+import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
+import 'package:my_gallery/modules/flu_app/router/router_delegate_manager.dart';
 class CanvasEntrancePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -16,12 +14,12 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Paint1绘制"),
+        title: const Text("Paint1绘制"),
       ),
       body: Column(
         children: [
           InkWell(
-            child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+            child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -29,7 +27,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: MediaQuery.of(context).size.width, height: 60,
-                child: Text("1普通绘制", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                child: const Text("1普通绘制", style: const TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
               ),
             ),
             onTap: (){
@@ -37,7 +35,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
             },
           ),
           InkWell(
-            child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+            child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -45,7 +43,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: MediaQuery.of(context).size.width, height: 60,
-                child: Text("2线段绘制", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                child: const Text("2线段绘制", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
               ),
             ),
             onTap: (){
@@ -53,7 +51,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
             },
           ),
           InkWell(
-            child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+            child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -61,7 +59,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: MediaQuery.of(context).size.width, height: 60,
-                child: Text("3贝塞尔曲线绘制", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                child: const Text("3贝塞尔曲线绘制", style: const TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
               ),
             ),
             onTap: (){
@@ -69,7 +67,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
             },
           ),
           InkWell(
-            child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+            child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -77,7 +75,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: MediaQuery.of(context).size.width, height: 60,
-                child: Text("4图片绘制", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                child: const Text("4图片绘制", style: const TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
               ),
             ),
             onTap: (){
@@ -85,7 +83,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
             },
           ),
           InkWell(
-            child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+            child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -93,7 +91,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: MediaQuery.of(context).size.width, height: 60,
-                child: Text("5文本绘制", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                child: const Text("5文本绘制", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
               ),
             ),
             onTap: (){
@@ -101,7 +99,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
             },
           ),
           InkWell(
-            child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+            child: Padding(padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -109,7 +107,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: MediaQuery.of(context).size.width, height: 60,
-                child: Text("6动画绘制", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                child: const Text("6动画绘制", style: const TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
               ),
             ),
             onTap: (){

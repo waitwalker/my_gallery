@@ -1,35 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:my_gallery/modules/flu_app/ad/ad_page.dart';
 import 'package:my_gallery/modules/flu_app/ad/ad_splash_page.dart';
-import 'package:my_gallery/modules/flu_app/animation/animation_page.dart';
-import 'package:my_gallery/modules/flu_app/animation/hero_page.dart';
-import 'package:my_gallery/modules/flu_app/animation/position_animation.dart';
-import 'package:my_gallery/modules/flu_app/canvas/canvas_entrance_page.dart';
-import 'package:my_gallery/modules/flu_app/canvas/paint_3_page.dart';
-import 'package:my_gallery/modules/flu_app/canvas/paint_4_page.dart';
-import 'package:my_gallery/modules/flu_app/canvas/paint_5_page.dart';
-import 'package:my_gallery/modules/flu_app/canvas/paint_6_page.dart';
-import 'package:my_gallery/modules/flu_app/canvas/paint_7_page.dart';
 import 'package:my_gallery/modules/flu_app/chart/chart_page.dart';
 import 'package:my_gallery/modules/flu_app/common/place_holder_page.dart';
 import 'package:my_gallery/modules/flu_app/entrance/flu_bottom_navigation_bar_page.dart';
 import 'package:my_gallery/modules/flu_app/event_penetration/event_penetration_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/animation/animation_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/animation/hero_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/animation/position_animation.dart';
+import 'package:my_gallery/modules/flu_app/home_module/canvas/canvas_entrance_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_1_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_2_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_3_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_4_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_5_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_6_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_7_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_page.dart';
-import 'package:my_gallery/modules/flu_app/isolate/isolate_page.dart';
-import 'package:my_gallery/modules/flu_app/ke_frame_listview/KeFrameListViewPage.dart';
+import 'package:my_gallery/modules/flu_app/home_module/isolate/isolate_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/ke_frame_listview/KeFrameListViewPage.dart';
+import 'package:my_gallery/modules/flu_app/home_module/mixin_page/mixin_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/notification/notification_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/platform_view/platform_view_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/shop/complexity_scrollview_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/sliver_appbar_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/sliver_custom_header_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/sliver_entrance_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/sliver_list_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/sliver_sticky_page.dart';
 import 'package:my_gallery/modules/flu_app/message_module/chat_page.dart';
 import 'package:my_gallery/modules/flu_app/message_module/contact_page.dart';
-import 'package:my_gallery/modules/flu_app/mixin_page/mixin_page.dart';
-import 'package:my_gallery/modules/flu_app/notification/notification_page.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_page.dart';
-import 'package:my_gallery/modules/flu_app/platform_view/platform_view_page.dart';
 import 'package:my_gallery/modules/flu_app/router/router_delegate_manager.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/complexity_scrollview_page.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/sliver_appbar_page.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/sliver_custom_header_page.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/sliver_entrance_page.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/sliver_list_page.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/sliver_sticky_page.dart';
 import 'package:my_gallery/modules/flu_app/splash_module/splash_page.dart';
 import 'package:my_gallery/modules/flu_app/store/order/order_page.dart';
 // import 'package:my_gallery/modules/flu_app/t_live/TRTCLiveRoomDemo/ui/list/LiveRoomCreate.dart';
@@ -38,10 +40,6 @@ import 'package:my_gallery/modules/flu_app/store/order/order_page.dart';
 // import 'package:my_gallery/modules/flu_app/t_live/index.dart';
 // import 'package:my_gallery/modules/flu_app/t_live/login/TLoginPage.dart';
 import 'package:my_gallery/modules/flu_app/tabbar/tabbar_page.dart';
-
-import '../canvas/paint_1_page.dart';
-import '../canvas/paint_2_page.dart';
-import '../canvas/paint_4_page.dart';
 import 'flu_router_page_api.dart';
 
 /// FluRouterDelegate继承自RouterDelegate，并混入ChangeNotifier和PopNavigatorRouterDelegateMixin
@@ -179,7 +177,7 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
         childPage = const HomePage();
         break;
       case FluRouterPageAPI.isolatePage:
-        childPage = IsolatePage();
+        childPage = const IsolatePage();
         break;
       case FluRouterPageAPI.platformViewPage:
         childPage = PlatformViewPage();

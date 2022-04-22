@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/shop_scroll_controller.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/shop_scroll_coordinator.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/shop/shop_scroll_controller.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/shop/shop_scroll_coordinator.dart';
 
 class Page2 extends StatefulWidget {
   final ShopScrollCoordinator? shopCoordinator;
@@ -25,8 +25,8 @@ class _Page2State extends State<Page2> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.all(0),
-      physics: ClampingScrollPhysics(),
+      padding: const EdgeInsets.all(0),
+      physics: const ClampingScrollPhysics(),
       controller: _listScrollController,
       itemExtent: 150,
       itemBuilder: (context, index) => Container(

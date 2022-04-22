@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/animation/position_animation_view_model.dart';
 import 'package:provider/provider.dart';
 
+import 'position_animation_view_model.dart';
+
 class PositionAnimationPage extends StatefulWidget {
+  const PositionAnimationPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _PositionAnimationPageState();

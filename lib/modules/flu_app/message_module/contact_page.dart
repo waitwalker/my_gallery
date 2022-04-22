@@ -1,13 +1,12 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lpinyin/lpinyin.dart';
-import 'package:my_gallery/modules/flu_app/mtt_listview/hover_util.dart';
-import 'package:my_gallery/modules/flu_app/mtt_listview/index_bar.dart';
-import 'package:my_gallery/modules/flu_app/mtt_listview/mtt_listview.dart';
+import 'package:my_gallery/modules/flu_app/home_module/mtt_listview/hover_util.dart';
+import 'package:my_gallery/modules/flu_app/home_module/mtt_listview/index_bar.dart';
 import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
 import 'package:provider/provider.dart';
+import '../home_module/mtt_listview/mtt_listview.dart';
 
 
 class ContactInfo extends HoverAbstractModel {
@@ -132,10 +131,10 @@ class _ContactPageState extends State<ContactPage> with WidgetsBindingObserver{
     int themeIndex = Provider.of<ThemeChangeNotifier>(context).themeIndex;
     return Scaffold(
       appBar: AppBar(
-        title: Text("联系人"),
+        title: const Text("联系人"),
         backgroundColor: themeColorList[themeIndex],
       ),
-      body: isLoading ? CircularProgressIndicator() : MTTListView(
+      body: isLoading ? const CircularProgressIndicator() : MTTListView(
         data: contactList,
         itemCount: contactList.length,
         itemBuilder: (BuildContext context, int index) {
@@ -144,7 +143,7 @@ class _ContactPageState extends State<ContactPage> with WidgetsBindingObserver{
           return Row(
             children: [
               InkWell(
-                child: Container(height: 44, child: Text("${model.name}"),),
+                child: SizedBox(height: 44, child: Text("${model.name}"),),
                 onTap: (){
 
                 },
@@ -152,7 +151,7 @@ class _ContactPageState extends State<ContactPage> with WidgetsBindingObserver{
             ],
           );
         },
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         hoverItemBuilder: (BuildContext context, int index) {
           ContactInfo model = contactList[index];
           if ('↑' == model.getHoverTag()) {
@@ -162,7 +161,7 @@ class _ContactPageState extends State<ContactPage> with WidgetsBindingObserver{
           return Container(alignment: Alignment.centerLeft, color: Colors.red, height: 44, width: MediaQuery.of(context).size.width, child: Text("${model.tagIndex}"),);
         },
         indexBarData: ['↑', '☆', ...kIndexBarData],
-        indexBarOptions: IndexBarOptions(
+        indexBarOptions: const IndexBarOptions(
           needRebuild: true,
           ignoreDragCancel: true,
           downTextStyle: TextStyle(fontSize: 12, color: Colors.white),

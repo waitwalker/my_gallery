@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/notification/flu_notification.dart';
+import 'package:my_gallery/modules/flu_app/home_module/notification/flu_notification.dart';
 
 class NotificationPage extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class _NotificationPageState extends State<NotificationPage> {
     //监听通知
     return Scaffold(
       appBar: AppBar(
-        title: Text("Notification"),
+        title: const Text("Notification"),
       ),
       body: NotificationListener<FluNotification>(
         onNotification: (notification) {
@@ -33,7 +33,7 @@ class _NotificationPageState extends State<NotificationPage> {
                   return ElevatedButton(
                     //按钮点击时分发通知
                     onPressed: () => FluNotification("Hi").dispatch(context),
-                    child: Text("Send Notification"),
+                    child: const Text("Send Notification"),
                   );
                 },
               ),

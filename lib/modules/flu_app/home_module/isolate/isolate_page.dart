@@ -3,10 +3,12 @@ import 'dart:io';
 import 'dart:isolate';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/isolate/isolate_event.dart';
-import 'package:my_gallery/modules/flu_app/isolate/isolate_fire.dart';
+import 'package:my_gallery/modules/flu_app/home_module/isolate/isolate_event.dart';
+import 'package:my_gallery/modules/flu_app/home_module/isolate/isolate_fire.dart';
 
 class IsolatePage extends StatefulWidget {
+  const IsolatePage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _IsolatePageState();
@@ -51,21 +53,21 @@ class _IsolatePageState extends State<IsolatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Isolate使用"),
+        title: const Text("Isolate使用"),
       ),
       body: Column(children: [
         Expanded(child: ListView(
           children: [
-            Padding(padding: EdgeInsets.only(top: 18)),
+            const Padding(padding: EdgeInsets.only(top: 18)),
             InkWell(
-              child: Padding(padding: EdgeInsets.only(left: 20, right: 20, bottom: 20,),
+              child: Padding(padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20,),
                 child: Container(width: MediaQuery.of(context).size.width, height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.lightBlue,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Text("创建Isolate", style: TextStyle(fontSize: 20, color: Colors.white,),),
+                  child: const Text("创建Isolate", style: TextStyle(fontSize: 20, color: Colors.white,),),
                 ),
               ),
               onTap: () {
@@ -74,14 +76,14 @@ class _IsolatePageState extends State<IsolatePage> {
             ),
 
             InkWell(
-              child: Padding(padding: EdgeInsets.only(left: 20, right: 20, bottom: 20,),
+              child: Padding(padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20,),
                 child: Container(width: MediaQuery.of(context).size.width, height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.amber,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Text("主线程发送任务给newIsolate", style: TextStyle(fontSize: 20, color: Colors.pink, fontWeight: FontWeight.bold),),
+                  child: const Text("主线程发送任务给newIsolate", style: TextStyle(fontSize: 20, color: Colors.pink, fontWeight: FontWeight.bold),),
                 ),
               ),
               onTap: () async {
@@ -91,37 +93,37 @@ class _IsolatePageState extends State<IsolatePage> {
               },
             ),
 
-            Padding(padding: EdgeInsets.only(left: 20, right: 20, bottom: 20,),
+            Padding(padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20,),
               child: Container(width: MediaQuery.of(context).size.width, height: 260,
                 alignment: Alignment.topCenter,
                 decoration: BoxDecoration(
                   color: Colors.lightBlue,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Text("newIsolate接收到的消息:$message1", style: TextStyle(fontSize: 20, color: Colors.white,),),
+                child: Text("newIsolate接收到的消息:$message1", style: const TextStyle(fontSize: 20, color: Colors.white,),),
               ),
             ),
 
-            Padding(padding: EdgeInsets.only(left: 20, right: 20, bottom: 20,),
+            Padding(padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20,),
               child: Container(width: MediaQuery.of(context).size.width, height: 260,
                 alignment: Alignment.topCenter,
                 decoration: BoxDecoration(
                   color: Colors.lightBlue,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Text("主线程接收到的消息:$message2", style: TextStyle(fontSize: 20, color: Colors.white,),),
+                child:  Text("主线程接收到的消息:$message2", style: const TextStyle(fontSize: 20, color: Colors.white,),),
               ),
             ),
 
             InkWell(
-              child: Padding(padding: EdgeInsets.only(left: 20, right: 20, bottom: 20,),
+              child: Padding(padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20,),
                 child: Container(width: MediaQuery.of(context).size.width, height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.lightBlue,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Text("没有使用compute优化", style: TextStyle(fontSize: 20, color: Colors.white,),),
+                  child: const Text("没有使用compute优化", style: TextStyle(fontSize: 20, color: Colors.white,),),
                 ),
               ),
               onTap: () {
@@ -130,14 +132,14 @@ class _IsolatePageState extends State<IsolatePage> {
             ),
 
             InkWell(
-              child: Padding(padding: EdgeInsets.only(left: 20, right: 20, bottom: 20,),
+              child: Padding(padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20,),
                 child: Container(width: MediaQuery.of(context).size.width, height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.lightBlue,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Text("使用compute优化", style: TextStyle(fontSize: 20, color: Colors.white,),),
+                  child: const Text("使用compute优化", style: TextStyle(fontSize: 20, color: Colors.white,),),
                 ),
               ),
               onTap: () async {
@@ -242,12 +244,11 @@ void receiveMessageFromRootIsolate(ReceivePort newIsolateReceivePort) {
     String msg = messageList[0] as String;
     IsolateFire.sendNotify(1, msg);
     /// 这里处理rootIsolate让newIsolate帮忙处理的工作
-    sleep(Duration(seconds: 3));
+    sleep(const Duration(seconds: 3));
     SendPort rootIsolateSendPort = messageList[1] as SendPort;
     /// 消息传递方式1）send
     //rootIsolateSendPort.send("newIsolate已经把活干完了");
     /// 消息传递方式2） exit
     Isolate.exit(rootIsolateSendPort,"newIsolate已经把活干完了");
-    newIsolate!.kill(priority: Isolate.immediate);
   });
 }

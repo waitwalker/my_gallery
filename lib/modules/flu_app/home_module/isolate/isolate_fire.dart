@@ -1,5 +1,5 @@
 import 'package:event_bus/event_bus.dart';
-import 'package:my_gallery/modules/flu_app/isolate/isolate_event.dart';
+import 'package:my_gallery/modules/flu_app/home_module/isolate/isolate_event.dart';
 
 ///
 /// @ClassName Isolate借助eventBus发送消息

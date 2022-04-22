@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/page1.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/page2.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/page3.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/shop/page1.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/shop/page2.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/shop/page3.dart';
 import 'shop_scroll_coordinator.dart';
 import 'shop_scroll_controller.dart';
 

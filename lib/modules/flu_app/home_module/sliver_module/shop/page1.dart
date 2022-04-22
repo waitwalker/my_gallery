@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/shop_scroll_controller.dart';
-import 'package:my_gallery/modules/flu_app/sliver_module/shop/shop_scroll_coordinator.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/shop/shop_scroll_controller.dart';
+import 'package:my_gallery/modules/flu_app/home_module/sliver_module/shop/shop_scroll_coordinator.dart';
 
 
 class Page1 extends StatefulWidget {
