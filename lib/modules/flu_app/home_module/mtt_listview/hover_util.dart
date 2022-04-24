@@ -1,3 +1,5 @@
+import 'package:my_gallery/modules/flu_app/config/printer.dart';
+
 /// 抽象类
 abstract class HoverAbstractModel {
   bool shouldShowHover = false;
@@ -33,7 +35,7 @@ class HoverUtil {
         return a.getHoverTag()!.compareTo(b.getHoverTag()!);
       }
     });
-    print("排序完的列表$list");
+    printer("排序完的列表$list");
   }
 
   ///

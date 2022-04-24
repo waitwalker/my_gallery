@@ -3,8 +3,8 @@ import 'package:my_gallery/modules/flu_app/ad/ad_page.dart';
 import 'package:my_gallery/modules/flu_app/ad/ad_splash_page.dart';
 import 'package:my_gallery/modules/flu_app/chart/chart_page.dart';
 import 'package:my_gallery/modules/flu_app/common/place_holder_page.dart';
+import 'package:my_gallery/modules/flu_app/config/printer.dart';
 import 'package:my_gallery/modules/flu_app/entrance/flu_bottom_navigation_bar_page.dart';
-import 'package:my_gallery/modules/flu_app/event_penetration/event_penetration_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/animation/animation_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/animation/hero_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/animation/position_animation.dart';
@@ -16,9 +16,10 @@ import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_4_page.dart'
 import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_5_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_6_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_7_page.dart';
+import 'package:my_gallery/modules/flu_app/home_module/event_penetration/event_penetration_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/isolate/isolate_page.dart';
-import 'package:my_gallery/modules/flu_app/home_module/ke_frame_listview/KeFrameListViewPage.dart';
+import 'package:my_gallery/modules/flu_app/home_module/ke_frame_listview/ke_frame_list_view_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/mixin_page/mixin_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/notification/notification_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/platform_view/platform_view_page.dart';
@@ -120,7 +121,7 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
   /// @Date 2022/1/9
   ///
   Future<bool> _confirmExit() async {
-    print(navigatorKey.currentState!.context);
+    printer(navigatorKey.currentState!.context);
     final result = await showDialog<bool>(context: navigatorKey.currentContext!, builder: (context){
       return AlertDialog(
         content: const Text("确定要退出APP吗"),
@@ -144,7 +145,7 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
   @override
   Future<void> setNewRoutePath(List<RouteSettings> configuration) {
     if (configuration.isNotEmpty) {
-      print("新的路由路径：${configuration.last.name}");
+      printer("新的路由路径：${configuration.last.name}");
       _setPath(configuration.map((routeSettings) => _createPage(routeSettings)).toList());
     }
     return Future.value(null);
@@ -195,7 +196,7 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
         childPage = HeroPage(arguments: routeSettings.arguments as Map<String, String>,);
         break;
       case FluRouterPageAPI.eventPenetrationPage:
-        childPage = EventPenetrationPage();
+        childPage = const EventPenetrationPage();
         break;
       case FluRouterPageAPI.positionAnimationPage:
         childPage = PositionAnimationPage();
@@ -319,7 +320,7 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
   push({String? name, dynamic arguments}) {
     _pages.add(_createPage(RouteSettings(name: name, arguments: arguments)));
     notifyListeners();
-    print("当前pages列表：${_pages.length}, $_pages");
+    printer("当前pages列表：${_pages.length}, $_pages");
   }
 
   ///

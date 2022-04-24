@@ -2,8 +2,11 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:my_gallery/modules/flu_app/config/printer.dart';
 
 class Paint6Page extends StatefulWidget {
+  const Paint6Page({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _Paint6PageState();
@@ -30,10 +33,8 @@ class _Paint6PageState extends State<Paint6Page> with SingleTickerProviderStateM
       appBar: AppBar(
         title: Text("Paint6 动画绘制"),
       ),
-      body: Container(
-        child: CustomPaint(
-          painter: Paint6CustomPainter(animationController),
-        ),
+      body: CustomPaint(
+        painter: Paint6CustomPainter(animationController),
       ),
     );
   }
@@ -71,7 +72,7 @@ class Paint6CustomPainter extends CustomPainter {
     paint.color = Colors.green;
     paint.strokeWidth = 10;
     paint.style = PaintingStyle.stroke;
-    print("${animation!.value}");
+    printer("${animation!.value}");
     canvas.drawLine(Offset(20, 60), Offset(20 + 200.0 * animation!.value, 60), paint);
 
     Path path = Path();

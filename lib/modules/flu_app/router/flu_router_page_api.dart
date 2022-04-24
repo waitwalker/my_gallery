@@ -1,5 +1,7 @@
 
 
+import 'package:my_gallery/modules/flu_app/config/printer.dart';
+
 class FluRouterPageAPI {
   
   /// 首页
@@ -124,7 +126,7 @@ class FluRouterPageAPI {
   static const String audiencePage = "/liveRoom/roomAudience";
 
   FluRouterPageAPI._internal(){
-    print("FluRouterPageAPI单例初始化");
+    printer("FluRouterPageAPI单例初始化");
   }
   static FluRouterPageAPI? _sharedInstance;
   static FluRouterPageAPI? _getInstance() {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class KeFrameListViewPage extends StatefulWidget {
+  const KeFrameListViewPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _KeFrameListViewPageState1();
 }

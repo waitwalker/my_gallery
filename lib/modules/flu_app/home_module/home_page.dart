@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/common/event/common_event_manager.dart';
+import 'package:my_gallery/modules/flu_app/config/printer.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
 import 'package:my_gallery/modules/flu_app/router/navigator_view_model.dart';
@@ -24,12 +24,12 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
   void initState() {
     super.initState();
     /// 添加观察者
-    print(context);
+    printer(context);
     WidgetsBinding.instance!.addObserver(this);
     Provider.of<HomeChangeNotifier>(context,listen: false).loadHomeData(-2);
 
     // SchedulerBinding.instance.addPersistentFrameCallback((timeStamp) {
-    //   print("object");
+    //   printer("object");
     // });
     //
     // WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    print(state);
+    printer(state);
     super.didChangeAppLifecycleState(state);
   }
 
@@ -63,25 +63,25 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
 
   @override
   void didPush() {
-    print("home页面被push出来了，home在最顶层了");
+    printer("home页面被push出来了，home在最顶层了");
     super.didPush();
   }
 
   @override
   void didPop() {
-    print("home页面被pop掉了");
+    printer("home页面被pop掉了");
     super.didPop();
   }
 
   @override
   void didPushNext() {
-    print("home页面被didPushNext覆盖了");
+    printer("home页面被didPushNext覆盖了");
     super.didPushNext();
   }
 
   @override
   void didPopNext() {
-    print("home页面被didPopNext 又重新出现了");
+    printer("home页面被didPopNext 又重新出现了");
     super.didPopNext();
   }
 
@@ -109,12 +109,12 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
           crossAxisAlignment: CrossAxisAlignment.center,
           children: const [
             Center(child: CircularProgressIndicator(),),
-        ],) : hasError ? Container(child: InkWell(
+        ],) : hasError ? InkWell(
           child: const Text("有错误",style: TextStyle(fontSize: 30),),
           onTap: (){
             Provider.of<HomeChangeNotifier>(context, listen: false).loadHomeData(2);
           },
-        ),) :Column(
+        ) :Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Expanded(child: ListView(

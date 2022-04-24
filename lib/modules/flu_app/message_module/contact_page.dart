@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lpinyin/lpinyin.dart';
+import 'package:my_gallery/modules/flu_app/config/printer.dart';
 import 'package:my_gallery/modules/flu_app/home_module/mtt_listview/hover_util.dart';
 import 'package:my_gallery/modules/flu_app/home_module/mtt_listview/index_bar.dart';
 import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
@@ -49,6 +50,8 @@ class ContactInfo extends HoverAbstractModel {
 }
 
 class ContactPage extends StatefulWidget {
+  const ContactPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _ContactPageState();
@@ -100,7 +103,9 @@ class _ContactPageState extends State<ContactPage> with WidgetsBindingObserver{
   }
 
   _handleList(List<ContactInfo> list) {
-    if (list.isEmpty) return;
+    if (list.isEmpty) {
+      return;
+    }
     for (int i = 0; i < list.length; i++) {
       String pinyin = PinyinHelper.getPinyin(list[i].name!);
       String tag = pinyin.substring(0,1).toUpperCase();
@@ -122,7 +127,7 @@ class _ContactPageState extends State<ContactPage> with WidgetsBindingObserver{
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-     print(state);
+     printer(state);
     super.didChangeAppLifecycleState(state);
   }
 

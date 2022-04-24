@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_gallery/modules/flu_app/config/printer.dart';
 
 ///
 /// @ClassName 全局监听路由页面变化
@@ -9,7 +10,7 @@ import 'package:flutter/material.dart';
 class FluNavigatorObserver<R extends Route<dynamic>> extends RouteObserver<R> {
   @override
   void didPush(Route route, Route? previousRoute) {
-    print("didPush ${route.settings.name}");
+    printer("didPush ${route.settings.name}");
     if ((previousRoute is TransitionRoute) && previousRoute.opaque) {
       //全屏不透明，通常是一个page
     } else {
@@ -20,31 +21,31 @@ class FluNavigatorObserver<R extends Route<dynamic>> extends RouteObserver<R> {
 
   @override
   void didPop(Route route, Route? previousRoute) {
-    print("didPop${route.settings.name}");
+    printer("didPop${route.settings.name}");
     super.didPop(route, previousRoute);
   }
 
   @override
   void didRemove(Route route, Route? previousRoute) {
-    print("didRemove${route.settings.name}");
+    printer("didRemove${route.settings.name}");
     super.didRemove(route, previousRoute);
   }
 
   @override
   void didReplace({Route? newRoute, Route? oldRoute}) {
-    print("didReplace${newRoute!.settings.name}");
+    printer("didReplace${newRoute!.settings.name}");
     super.didReplace(newRoute:newRoute, oldRoute:oldRoute);
   }
 
   @override
   void didStartUserGesture(Route route, Route? previousRoute) {
-    print("didStartUserGesture${route.settings.name}");
+    printer("didStartUserGesture${route.settings.name}");
     super.didStartUserGesture(route, previousRoute);
   }
 
   @override
   void didStopUserGesture() {
-    print("didStopUserGesture");
+    printer("didStopUserGesture");
     super.didStopUserGesture();
   }
 }

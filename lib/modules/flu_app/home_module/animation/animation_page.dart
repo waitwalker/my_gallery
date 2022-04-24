@@ -1,9 +1,12 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:my_gallery/modules/flu_app/config/printer.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
 import 'package:my_gallery/modules/flu_app/router/router_delegate_manager.dart';
 
 class AnimationPage extends StatefulWidget {
+  const AnimationPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _AnimationPageState();
@@ -26,7 +29,7 @@ class _AnimationPageState extends State<AnimationPage> with SingleTickerProvider
   String image2 = "static/images/ai_test_back_top.png";
   GestureDetector buildRowItem(BuildContext context, String image){
     return GestureDetector(
-      child: Container(
+      child: SizedBox(
         width: 100,
         height: 100,
         child: Hero(
@@ -52,7 +55,7 @@ class _AnimationPageState extends State<AnimationPage> with SingleTickerProvider
     } else {
       /// 没有运行 点击开始运行
       _playing = true;
-      _animationController.forward()..whenComplete(() => _animationController.reverse());
+      _animationController.forward().whenComplete(() => _animationController.reverse());
       //_animationController.repeat();
     }
     setState(() {
@@ -76,7 +79,7 @@ class _AnimationPageState extends State<AnimationPage> with SingleTickerProvider
     });
     
     _turns.addStatusListener((status) { 
-      print("当前动画状态：$status)");
+      printer("当前动画状态：$status)");
     });
     super.initState();
   }

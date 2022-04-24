@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:flutter/services.dart';
+import 'package:my_gallery/modules/flu_app/config/printer.dart';
 import 'package:uni_links/uni_links.dart';
 
 class DeepLinksManager {
@@ -16,10 +17,10 @@ class DeepLinksManager {
     String? initialLink;
     try {
       initialLink = await getInitialLink();
-      print("传递进来的链接：$initialLink");
+      printer("传递进来的链接：$initialLink");
       if (initialLink != null) {
         /// 处理页面跳转
-        print("初始化link:$initialLink");
+        printer("初始化link:$initialLink");
       }
     } on PlatformException {
       initialLink = "";
@@ -35,7 +36,7 @@ class DeepLinksManager {
   static handleIncomingLinks() async {
     _sub = linkStream.listen((event) {
       /// 处理跳转
-      print("App 打开状态下传进来的link:$event");
+      printer("App 打开状态下传进来的link:$event");
     },
       onError: (error){},
       onDone: (){},
@@ -55,9 +56,9 @@ class DeepLinksManager {
         /// 处理页面跳转
       }
     } on PlatformException {
-      print("initialUri object");
+      printer("initialUri object");
     } on FormatException catch(err) {
-      print("initialUri err:$err");
+      printer("initialUri err:$err");
     }
   }
 

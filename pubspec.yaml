@@ -60,6 +60,8 @@ dependencies:
   # 贝壳开源的widget
   #https://bruno.ke.com/page/widgets/brn-doughnut-chart
   bruno: ^2.1.1
+  # 游戏引擎
+  flame: ^1.1.0
 
 dev_dependencies:
   flutter_test:

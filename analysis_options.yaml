@@ -9,6 +9,30 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  exclude:
+    - my_gallery/lib/modules/flu_app/config/printer.dart
+  errors:
+    # 文件使用小写下划线模式 Name source files using lowercase_with_underscores.
+    file_names: error
+    # 文件使用小写下划线模式 package source files using lowercase_with_underscores.
+    package_names: error
+    # 方法必须声明返回类型
+    always_declare_return_types: warning
+    # 不要给闭包的参数传null
+    null_closures: warning
+    #    避免相对路径导入
+    always_use_package_imports: warning
+    dead_code: warning
+    invalid_assignment: warning
+    # 返回值缺失
+    missing_return: warning
+    # 无效的表达式
+    unnecessary_statements: warning
+    #未初始化的变量，尽量提供类型
+    prefer_typing_uninitialized_variables: warning
+  warnings:
+    avoid_print: true
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
@@ -22,8 +46,22 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    prefer_const_constructors: false
+    #代码块最好换行到新行
+    always_put_control_body_on_new_line: true
+    file_names: true
+    package_names: true
+    #    使用Log.代替print
+    #    avoid_print: true
+    #Avoid using web-only libraries outside Flutter web plugin packages
+    avoid_web_libraries_in_flutter: true
+    # Avoid empty statements
+    empty_statements: true
+    # 避免空导入
+    implementation_imports: true
+
+    constant_identifier_names: false
+
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

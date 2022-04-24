@@ -1,11 +1,12 @@
 import 'dart:collection';
-
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/personal/personal_change_notifier.dart';
+import 'package:my_gallery/modules/flu_app/config/printer.dart';
 import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
 import 'package:provider/provider.dart';
 
 class PersonalPage extends StatefulWidget {
+  const PersonalPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _SelectorDemoWidgetState();
@@ -46,7 +47,7 @@ class _PersonalPageState extends State<PersonalPage> {
                   
                   InkWell(
                     onTap: (){
-                      print("点击了$index");
+                      printer("点击了$index");
                     },
                     child: Container(
                       color: Colors.green,
@@ -58,38 +59,9 @@ class _PersonalPageState extends State<PersonalPage> {
               ),
             );
           }))
-
-
         ],
       ),
     );
-    return Consumer<ThemeChangeNotifier>(builder: (context,themeChangeNotifier,child){
-      print("子控件会重绘");
-      return Scaffold(
-        appBar: AppBar(
-          backgroundColor: themeColorList[themeChangeNotifier.themeIndex],
-          title: Text("个人主页"),
-        ),
-        body: Column(
-          children: [
-            themeChangeNotifier.themeIndex > 0 ? Container(width: 100, height: 59, color: Colors.lightBlue,) : Container(width: 100, height: 59, color: Colors.amberAccent,),
-            InkWell(
-              child: Text("切换",style: TextStyle(fontSize: 30, color: themeChangeNotifier.themeIndex > 0 ? Colors.greenAccent : Colors.black87) ,),
-              onTap: (){
-                index++;
-                if (index == 6) {
-                  index = 0;
-                }
-                Provider.of<ThemeChangeNotifier>(context, listen: false).setTheme(index);
-              },
-            ),
-
-
-
-          ],
-        ),
-      );
-    });
   }
 }
 
@@ -122,7 +94,7 @@ class _SelectorDemoWidgetState extends State<PersonalPage> {
   void initState() {
     super.initState();
     //初始化数据
-    _model = new CountModel()..initData();
+    _model = CountModel()..initData();
   }
 
   @override
@@ -144,17 +116,17 @@ class _SelectorDemoWidgetState extends State<PersonalPage> {
 class CountItemWidget extends StatelessWidget {
   final String? content;
 
-  CountItemWidget({this.content});
+  const CountItemWidget({Key? key, this.content}):super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    print("CountItemWidget:build");
+    printer("CountItemWidget:build");
     return Container(
       height: 80,
       padding: EdgeInsets.all(15),
       alignment: Alignment.center,
-      child: RaisedButton(
-        onPressed: () =>
+      child: InkWell(
+        onTap: () =>
             Provider.of<CountModel>(context, listen: false).increment(content),
         child: Selector<CountModel, int?>(
           //从 CountModel得到对应字母的count
@@ -162,7 +134,7 @@ class CountItemWidget extends StatelessWidget {
             //如果前后两次的count不相等，则刷新
             shouldRebuild: (preCount, nextCount) => preCount != nextCount,
             builder: (context, count, child) {
-              print("$content Selector:builder");
+              printer("$content Selector:builder");
               return Text("$content : $count");
             }),
       ),
