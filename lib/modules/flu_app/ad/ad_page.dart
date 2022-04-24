@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_universalad/flutter_universalad.dart';
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_delegate.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
 import 'package:my_gallery/modules/flu_app/router/router_delegate_manager.dart';
@@ -67,48 +67,48 @@ class _ADPageState extends State<ADPage> {
     FlutterUniversalAdStream.initAdStream(
       uRewardCallBack: URewardCallBack(
         onShow: (sdkType) {
-          printer("$sdkType  激励广告开始显示");
+          kPrinter("$sdkType  激励广告开始显示");
         },
         onFail: (sdkType, code, message) {
-          printer("$sdkType  激励广告失败 $code $message");
+          kPrinter("$sdkType  激励广告失败 $code $message");
         },
         onClick: (sdkType) {
-          printer("$sdkType  激励广告点击");
+          kPrinter("$sdkType  激励广告点击");
         },
         onClose: (sdkType) {
-          printer("$sdkType  激励广告关闭");
+          kPrinter("$sdkType  激励广告关闭");
         },
         onReady: (sdkType) {
-          printer("$sdkType  激励广告预加载完成");
+          kPrinter("$sdkType  激励广告预加载完成");
           FlutterUniversalad.showRewardVideoAd();
         },
         onUnReady: (sdkType) {
-          printer("$sdkType  激励广告未预加载");
+          kPrinter("$sdkType  激励广告未预加载");
         },
         onVerify: (sdkType, transId, verify, amount, name) {
-          printer(
+          kPrinter(
               "$sdkType  激励广告观看成功 transId=$transId verify=$verify amount=$amount name=$name");
         },
       ),
       uInteractionCallBack: UInteractionCallBack(
         onShow: (sdkType) {
-          printer("$sdkType  插屏广告开始显示");
+          kPrinter("$sdkType  插屏广告开始显示");
         },
         onFail: (sdkType, code, message) {
-          printer("$sdkType  插屏广告失败 $code $message");
+          kPrinter("$sdkType  插屏广告失败 $code $message");
         },
         onClick: (sdkType) {
-          printer("$sdkType  插屏广告点击");
+          kPrinter("$sdkType  插屏广告点击");
         },
         onClose: (sdkType) {
-          printer("$sdkType  插屏广告关闭");
+          kPrinter("$sdkType  插屏广告关闭");
         },
         onReady: (sdkType) {
-          printer("$sdkType  插屏广告预加载完成");
+          kPrinter("$sdkType  插屏广告预加载完成");
           FlutterUniversalad.showInterstitialAd();
         },
         onUnReady: (sdkType) {
-          printer("$sdkType  插屏广告未预加载");
+          kPrinter("$sdkType  插屏广告未预加载");
         },
       ),
     );
@@ -398,16 +398,16 @@ class _ADPageState extends State<ADPage> {
                 //一次请求广告数量 大于1小于3 必填
                 callBack: FlutterUnionadNativeCallBack(
                   onShow: () {
-                    printer("信息流广告显示");
+                    kPrinter("信息流广告显示");
                   },
                   onFail: (error) {
-                    printer("信息流广告失败 $error");
+                    kPrinter("信息流广告失败 $error");
                   },
                   onDislike: (message) {
-                    printer("信息流广告不感兴趣 $message");
+                    kPrinter("信息流广告不感兴趣 $message");
                   },
                   onClick: () {
-                    printer("信息流广告点击");
+                    kPrinter("信息流广告点击");
                   },
                 ),
               ),
@@ -442,16 +442,16 @@ class _ADPageState extends State<ADPage> {
                 probability: 0.5,
                 callBack: UNativeCallBack(
                   onShow: (sdkType) {
-                    printer("$sdkType  Native广告显示");
+                    kPrinter("$sdkType  Native广告显示");
                   },
                   onFail: (sdkType, code, message) {
-                    printer("$sdkType  Native广告失败  $code $message");
+                    kPrinter("$sdkType  Native广告失败  $code $message");
                   },
                   onClick: (sdkType) {
-                    printer("$sdkType  Native广告点击");
+                    kPrinter("$sdkType  Native广告点击");
                   },
                   onClose: (sdkType) {
-                    printer("$sdkType  Native广告关闭");
+                    kPrinter("$sdkType  Native广告关闭");
                   },
                 ),
               ),
@@ -493,16 +493,16 @@ class _ADPageState extends State<ADPage> {
                 //广告事件回调 选填
                 callBack: FlutterUnionadBannerCallBack(
                     onShow: () {
-                      printer("banner广告加载完成");
+                      kPrinter("banner广告加载完成");
                     },
                     onDislike: (message){
-                      printer("banner不感兴趣 $message");
+                      kPrinter("banner不感兴趣 $message");
                     },
                     onFail: (error){
-                      printer("banner广告加载失败 $error");
+                      kPrinter("banner广告加载失败 $error");
                     },
                     onClick: (){
-                      printer("banner广告点击");
+                      kPrinter("banner广告点击");
                     }
                 ),
               ),
@@ -538,16 +538,16 @@ class _ADPageState extends State<ADPage> {
                 probability: 0.5,
                 callBack: UBannerCallBack(
                   onShow: (sdkType) {
-                    printer("$sdkType  Banner广告显示");
+                    kPrinter("$sdkType  Banner广告显示");
                   },
                   onFail: (sdkType, code, message) {
-                    printer("$sdkType  Banner广告失败  $code $message");
+                    kPrinter("$sdkType  Banner广告失败  $code $message");
                   },
                   onClick: (sdkType) {
-                    printer("$sdkType  Banner广告点击");
+                    kPrinter("$sdkType  Banner广告点击");
                   },
                   onClose: (sdkType) {
-                    printer("$sdkType  Banner广告关闭");
+                    kPrinter("$sdkType  Banner广告关闭");
                   },
                 ),
               )

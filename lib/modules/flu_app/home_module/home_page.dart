@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
 import 'package:my_gallery/modules/flu_app/router/navigator_view_model.dart';
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
   void initState() {
     super.initState();
     /// 添加观察者
-    printer(context);
+    kPrinter(context);
     WidgetsBinding.instance!.addObserver(this);
     Provider.of<HomeChangeNotifier>(context,listen: false).loadHomeData(-2);
 
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    printer(state);
+    kPrinter(state);
     super.didChangeAppLifecycleState(state);
   }
 
@@ -63,25 +63,25 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
 
   @override
   void didPush() {
-    printer("home页面被push出来了，home在最顶层了");
+    kPrinter("home页面被push出来了，home在最顶层了");
     super.didPush();
   }
 
   @override
   void didPop() {
-    printer("home页面被pop掉了");
+    kPrinter("home页面被pop掉了");
     super.didPop();
   }
 
   @override
   void didPushNext() {
-    printer("home页面被didPushNext覆盖了");
+    kPrinter("home页面被didPushNext覆盖了");
     super.didPushNext();
   }
 
   @override
   void didPopNext() {
-    printer("home页面被didPopNext 又重新出现了");
+    kPrinter("home页面被didPopNext 又重新出现了");
     super.didPopNext();
   }
 

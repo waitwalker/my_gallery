@@ -4,7 +4,7 @@ import 'package:my_gallery/modules/flu_app/config/environment_config.dart';
 /// description 自助打印处理类
 /// date 2022/4/24 15:17
 /// author LiuChuanan
-void printer(Object? object) {
+void kPrinter(Object? object) {
   if (kDebug) {
     print(object);
   }

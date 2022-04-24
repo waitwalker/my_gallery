@@ -11,7 +11,7 @@ include: package:flutter_lints/flutter.yaml
 
 analyzer:
   exclude:
-    - my_gallery/lib/modules/flu_app/config/printer.dart
+    - my_gallery/lib/modules/flu_app/config/k_printer.dart
   errors:
     # 文件使用小写下划线模式 Name source files using lowercase_with_underscores.
     file_names: error
@@ -31,8 +31,6 @@ analyzer:
     unnecessary_statements: warning
     #未初始化的变量，尽量提供类型
     prefer_typing_uninitialized_variables: warning
-  warnings:
-    avoid_print: true
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`

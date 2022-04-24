@@ -1,4 +1,4 @@
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 
 /// 抽象类
 abstract class HoverAbstractModel {
@@ -35,7 +35,7 @@ class HoverUtil {
         return a.getHoverTag()!.compareTo(b.getHoverTag()!);
       }
     });
-    printer("排序完的列表$list");
+    kPrinter("排序完的列表$list");
   }
 
   ///

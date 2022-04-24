@@ -1,6 +1,6 @@
 import 'dart:collection';
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
 import 'package:provider/provider.dart';
 
@@ -47,7 +47,7 @@ class _PersonalPageState extends State<PersonalPage> {
                   
                   InkWell(
                     onTap: (){
-                      printer("点击了$index");
+                      kPrinter("点击了$index");
                     },
                     child: Container(
                       color: Colors.green,
@@ -120,7 +120,7 @@ class CountItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    printer("CountItemWidget:build");
+    kPrinter("CountItemWidget:build");
     return Container(
       height: 80,
       padding: EdgeInsets.all(15),
@@ -134,7 +134,7 @@ class CountItemWidget extends StatelessWidget {
             //如果前后两次的count不相等，则刷新
             shouldRebuild: (preCount, nextCount) => preCount != nextCount,
             builder: (context, count, child) {
-              printer("$content Selector:builder");
+              kPrinter("$content Selector:builder");
               return Text("$content : $count");
             }),
       ),

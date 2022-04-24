@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lpinyin/lpinyin.dart';
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 import 'package:my_gallery/modules/flu_app/home_module/mtt_listview/hover_util.dart';
 import 'package:my_gallery/modules/flu_app/home_module/mtt_listview/index_bar.dart';
 import 'package:my_gallery/modules/flu_app/theme/theme_change_notifier.dart';
@@ -127,7 +127,7 @@ class _ContactPageState extends State<ContactPage> with WidgetsBindingObserver{
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-     printer(state);
+     kPrinter(state);
     super.didChangeAppLifecycleState(state);
   }
 

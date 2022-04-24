@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:isolate';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 import 'package:my_gallery/modules/flu_app/home_module/isolate/isolate_event.dart';
 import 'package:my_gallery/modules/flu_app/home_module/isolate/isolate_fire.dart';
 
@@ -145,7 +145,7 @@ class _IsolatePageState extends State<IsolatePage> {
               ),
               onTap: () async {
                 var value = await compute(_count2,10000000);
-                printer("计算完的结果：$value");
+                kPrinter("计算完的结果：$value");
               },
             ),
           ],
@@ -158,7 +158,7 @@ class _IsolatePageState extends State<IsolatePage> {
   _count1(int num) {
     int count = num;
     while (count > 0){
-      printer("当前count值：$count");
+      kPrinter("当前count值：$count");
       count--;
     }
   }
@@ -167,7 +167,7 @@ class _IsolatePageState extends State<IsolatePage> {
   static int _count2(int num) {
     int count = num;
     while (count > 0){
-      printer("当前count值：$count");
+      kPrinter("当前count值：$count");
       count--;
     }
     return count;
@@ -214,7 +214,7 @@ void sendMessageToNewIsolate(SendPort newIsolateSendPort) {
 
   /// rootIsolateReceivePort监听消息
   rootIsolateReceiverPort.listen((message) {
-    printer("rootIsolate收到了消息：$message");
+    kPrinter("rootIsolate收到了消息：$message");
     IsolateFire.sendNotify(2, message as String?);
   });
 }
@@ -239,9 +239,9 @@ void isolateDoWork(SendPort rootIsolateSendPort) async{
 void receiveMessageFromRootIsolate(ReceivePort newIsolateReceivePort) {
   newIsolateReceivePort.listen((message) {
     /// rootIsolate发送给newIsolate的消息，这里rootIsolate会把自己的sendPort发送过来
-    printer("rootIsolate发送过来的消息：$message");
+    kPrinter("rootIsolate发送过来的消息：$message");
     var messageList = message as List;
-    printer("messageList[0]:${messageList[0]}");
+    kPrinter("messageList[0]:${messageList[0]}");
     String msg = messageList[0] as String;
     IsolateFire.sendNotify(1, msg);
     /// 这里处理rootIsolate让newIsolate帮忙处理的工作

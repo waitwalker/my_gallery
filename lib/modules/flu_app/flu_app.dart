@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_gallery/modules/flu_app/common/deep_links/deep_links_manager.dart';
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 import 'package:my_gallery/modules/flu_app/home_module/animation/position_animation_view_model.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_change_notifier.dart';
@@ -35,8 +35,8 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
   void initState() {
     /// 监听方式1 全局监听
     kFluRouterDelegate.addListener(() {
-      printer("全局监听页面：${kFluRouterDelegate.currentConfiguration}");
-      printer("当前最上层页面：${kFluRouterDelegate.currentConfiguration.last.name}");
+      kPrinter("全局监听页面：${kFluRouterDelegate.currentConfiguration}");
+      kPrinter("当前最上层页面：${kFluRouterDelegate.currentConfiguration.last.name}");
     });
     /// 如果组件还挂载在Widget树上
     if (mounted) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 
 class MixinPage extends StatefulWidget {
   const MixinPage({Key? key}) : super(key: key);
@@ -104,7 +104,7 @@ mixin Person {
 
   /// mixin中可以定义方法实现
   void name() {
-    printer("mixin中的name的方法实现");
+    kPrinter("mixin中的name的方法实现");
   }
 }
 
@@ -114,50 +114,50 @@ class MyClass with Person {
   }
   @override
   eat() {
-    printer("基类中实现mixin中定义的方法声明");
+    kPrinter("基类中实现mixin中定义的方法声明");
   }
 
   @override
   name() {
-    printer("基类中重写mixin中定义的方法");
+    kPrinter("基类中重写mixin中定义的方法");
     super.name();
   }
 }
 
 class People {
   void tellName() {
-    printer("说出People 的名字");
+    kPrinter("说出People 的名字");
   }
 
   void showAge() {
-    printer("显示People的名字");
+    kPrinter("显示People的名字");
   }
 }
 
 mixin Dog {
   void tellName() {
-    printer("说出Dog mixin的名字");
+    kPrinter("说出Dog mixin的名字");
   }
 }
 
 mixin Cat on People{
   void tellName() {
-    printer("说出Cat mixin的名字");
+    kPrinter("说出Cat mixin的名字");
   }
 }
 
 class Animal extends People with Cat, Dog {
   @override
   void tellName() {
-    printer("说出Animal的名字开始");
+    kPrinter("说出Animal的名字开始");
     super.tellName();
-    printer("说出Animal的名字结束");
+    kPrinter("说出Animal的名字结束");
   }
 
   @override
   void showAge() {
-    printer("显示Animal的名字开始");
+    kPrinter("显示Animal的名字开始");
     super.showAge();
-    printer("显示Animal的名字结束");
+    kPrinter("显示Animal的名字结束");
   }
 }

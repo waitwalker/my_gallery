@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 /// @fileName event_penetration_page.dart
@@ -41,7 +41,7 @@ class _EventPenetrationPage extends State<EventPenetrationPage> {
             ),
             onTap: (){
               Fluttertoast.showToast(msg: "点击的是第2层");
-              printer("object");
+              kPrinter("object");
               if (shouldPenetration) {
                 shouldPenetration = false;
               }
@@ -80,7 +80,7 @@ class _EventPenetrationPage extends State<EventPenetrationPage> {
                 setState(() {
 
                 });
-                printer("点击登录了");
+                kPrinter("点击登录了");
               },
             ),
           ),

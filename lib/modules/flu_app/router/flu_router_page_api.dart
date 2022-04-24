@@ -1,6 +1,6 @@
 
 
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 
 class FluRouterPageAPI {
   
@@ -126,7 +126,7 @@ class FluRouterPageAPI {
   static const String audiencePage = "/liveRoom/roomAudience";
 
   FluRouterPageAPI._internal(){
-    printer("FluRouterPageAPI单例初始化");
+    kPrinter("FluRouterPageAPI单例初始化");
   }
   static FluRouterPageAPI? _sharedInstance;
   static FluRouterPageAPI? _getInstance() {

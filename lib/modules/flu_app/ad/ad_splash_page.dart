@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_universalad/flutter_universalad.dart';
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 
 class AdSplashPage extends StatefulWidget {
   const AdSplashPage({Key? key}) : super(key: key);
@@ -32,17 +32,17 @@ class _AdSplashPage extends State<AdSplashPage> {
           probability: 0.5,
           callBack: USplashCallBack(
             onShow: (sdkType) {
-              printer("$sdkType  开屏广告显示");
+              kPrinter("$sdkType  开屏广告显示");
             },
             onFail: (sdkType, code, message) {
-              printer("$sdkType  开屏广告失败  $code $message");
+              kPrinter("$sdkType  开屏广告失败  $code $message");
               Navigator.pop(context);
             },
             onClick: (sdkType) {
-              printer("$sdkType  开屏广告点击");
+              kPrinter("$sdkType  开屏广告点击");
             },
             onClose: (sdkType) {
-              printer("$sdkType  开屏广告关闭");
+              kPrinter("$sdkType  开屏广告关闭");
               Navigator.pop(context);
             },
           ),

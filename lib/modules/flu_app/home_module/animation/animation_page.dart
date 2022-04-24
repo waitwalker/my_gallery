@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/config/printer.dart';
+import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
 import 'package:my_gallery/modules/flu_app/router/router_delegate_manager.dart';
 
@@ -79,7 +79,7 @@ class _AnimationPageState extends State<AnimationPage> with SingleTickerProvider
     });
     
     _turns.addStatusListener((status) { 
-      printer("当前动画状态：$status)");
+      kPrinter("当前动画状态：$status)");
     });
     super.initState();
   }
