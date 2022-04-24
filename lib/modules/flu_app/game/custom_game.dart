@@ -12,9 +12,10 @@ import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 /// onLoad 在整个 FlameGame 的生命周期里只会调用一次，而其他生命周期方法都可能会多次调用，所以我们可以在 onLoad 中进行游戏的一些初始化工作。
 class CustomGame extends FlameGame {
 
-  /// 在游戏里面绘制一个圆，并让这个圆每一帧在x和y上移动1个像素
-  Offset circleCenter = const Offset(0, 0);
-  final Paint paint = Paint()..color = Colors.yellow;
+
+  final Paint paint = Paint()..color = Color.fromARGB(255, 35, 35, 38);
+  final Path canvasPath = Path();
+
 
   @override
   void onGameResize(Vector2 canvasSize) {
@@ -25,6 +26,7 @@ class CustomGame extends FlameGame {
   @override
   Future<void>? onLoad() {
     kPrinter("2然后依次调用onLoad方法，onLoad方法在整个FlameGame的生命周期里只会调用一次，而其他的生命周期方法可能会多次调用，所以可以在onLoad方法进行游戏的一些初始化工作");
+    canvasPath.addRect(Rect.fromLTWH(0, 0, canvasSize.x, canvasSize.y));
     return super.onLoad();
   }
 
@@ -43,7 +45,7 @@ class CustomGame extends FlameGame {
   void render(Canvas canvas){
     super.render(canvas);
     kPrinter("CustomGame printer");
-    canvas.drawCircle(circleCenter, 20, paint);
+    canvas.drawPath(canvasPath, paint);
   }
 
   /// methodName update
@@ -54,7 +56,6 @@ class CustomGame extends FlameGame {
   void update(double dt) {
     super.update(dt);
     kPrinter("CustomGame update");
-    circleCenter = circleCenter.translate(1, 1);
   }
 
   @override
