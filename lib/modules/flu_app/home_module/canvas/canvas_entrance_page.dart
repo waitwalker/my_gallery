@@ -31,7 +31,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
               ),
             ),
             onTap: (){
-              kFluRouterDelegate.push(name: FluRouterPageAPI.paint1Page);
+              kRouterDelegate.push(name: RouterPageAPI.paint1Page);
             },
           ),
           InkWell(
@@ -47,7 +47,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
               ),
             ),
             onTap: (){
-              kFluRouterDelegate.push(name: FluRouterPageAPI.paint2Page);
+              kRouterDelegate.push(name: RouterPageAPI.paint2Page);
             },
           ),
           InkWell(
@@ -63,7 +63,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
               ),
             ),
             onTap: (){
-              kFluRouterDelegate.push(name: FluRouterPageAPI.paint3Page);
+              kRouterDelegate.push(name: RouterPageAPI.paint3Page);
             },
           ),
           InkWell(
@@ -79,7 +79,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
               ),
             ),
             onTap: (){
-              kFluRouterDelegate.push(name: FluRouterPageAPI.paint4Page);
+              kRouterDelegate.push(name: RouterPageAPI.paint4Page);
             },
           ),
           InkWell(
@@ -95,7 +95,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
               ),
             ),
             onTap: (){
-              kFluRouterDelegate.push(name: FluRouterPageAPI.paint5Page);
+              kRouterDelegate.push(name: RouterPageAPI.paint5Page);
             },
           ),
           InkWell(
@@ -111,7 +111,7 @@ class _CanvasEntrancePageState extends State<CanvasEntrancePage> {
               ),
             ),
             onTap: (){
-              kFluRouterDelegate.push(name: FluRouterPageAPI.paint6Page);
+              kRouterDelegate.push(name: RouterPageAPI.paint6Page);
             },
           ),
 

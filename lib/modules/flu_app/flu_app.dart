@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 class FluApp extends StatefulWidget {
   FluApp({Key? key}) : super(key: key){
     /// 初始化时添加第一个页面
-    kFluRouterDelegate.push(name: FluRouterPageAPI.splashPage);
+    kRouterDelegate.push(name: RouterPageAPI.splashPage);
   }
   @override
   State<StatefulWidget> createState() {
@@ -34,9 +34,9 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
   @override
   void initState() {
     /// 监听方式1 全局监听
-    kFluRouterDelegate.addListener(() {
-      kPrinter("全局监听页面：${kFluRouterDelegate.currentConfiguration}");
-      kPrinter("当前最上层页面：${kFluRouterDelegate.currentConfiguration.last.name}");
+    kRouterDelegate.addListener(() {
+      kPrinter("全局监听页面：${kRouterDelegate.currentConfiguration}");
+      kPrinter("当前最上层页面：${kRouterDelegate.currentConfiguration.last.name}");
     });
     /// 如果组件还挂载在Widget树上
     if (mounted) {
@@ -58,7 +58,7 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
       ],
       child: MaterialApp.router(
         routeInformationParser: FluRouteInformationParser(),
-        routerDelegate: kFluRouterDelegate,
+        routerDelegate: kRouterDelegate,
         // theme: ThemeData(
         //   primaryColor: themeColorList[Provider.of<ThemeChangeNotifier>(context).themeIndex],
         // ),

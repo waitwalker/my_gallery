@@ -2,7 +2,7 @@
 
 import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 
-class FluRouterPageAPI {
+class RouterPageAPI {
   
   /// 首页
   static const String homePage = "/home";
@@ -33,6 +33,9 @@ class FluRouterPageAPI {
 
   /// ke_frame 页面
   static const String keFramePage = "/home/keFrame";
+
+  /// bottomSheetPage 页面
+  static const String bottomSheetPage = "/home/bottomSheetPage";
 
   /// canvas 页面
   static const String canvasPage = "/home/canvas";
@@ -125,18 +128,18 @@ class FluRouterPageAPI {
   /// 直播观看页面 拉流
   static const String audiencePage = "/liveRoom/roomAudience";
 
-  FluRouterPageAPI._internal(){
+  RouterPageAPI._internal(){
     kPrinter("FluRouterPageAPI单例初始化");
   }
-  static FluRouterPageAPI? _sharedInstance;
-  static FluRouterPageAPI? _getInstance() {
-    _sharedInstance ??= FluRouterPageAPI._internal();
+  static RouterPageAPI? _sharedInstance;
+  static RouterPageAPI? _getInstance() {
+    _sharedInstance ??= RouterPageAPI._internal();
     return _sharedInstance;
   }
 
-  factory FluRouterPageAPI() => _getInstance()!;
+  factory RouterPageAPI() => _getInstance()!;
 
-  static FluRouterPageAPI? get sharedInstance => _getInstance();
+  static RouterPageAPI? get sharedInstance => _getInstance();
 
   
 }

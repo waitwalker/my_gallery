@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.isolatePage);
+                    kRouterDelegate.push(name: RouterPageAPI.isolatePage);
                   },
                 ),
 
@@ -176,7 +176,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.contactPage);
+                    kRouterDelegate.push(name: RouterPageAPI.contactPage);
                   },
                 ),
 
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.platformViewPage);
+                    kRouterDelegate.push(name: RouterPageAPI.platformViewPage);
                   },
                 ),
                 InkWell(
@@ -209,7 +209,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.notificationPage);
+                    kRouterDelegate.push(name: RouterPageAPI.notificationPage);
                   },
                 ),
 
@@ -226,7 +226,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.mixinPage);
+                    kRouterDelegate.push(name: RouterPageAPI.mixinPage);
                   },
                 ),
 
@@ -243,7 +243,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.animationPage);
+                    kRouterDelegate.push(name: RouterPageAPI.animationPage);
                   },
                 ),
 
@@ -260,7 +260,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.eventPenetrationPage);
+                    kRouterDelegate.push(name: RouterPageAPI.eventPenetrationPage);
                   },
                 ),
 
@@ -277,7 +277,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.adPage);
+                    kRouterDelegate.push(name: RouterPageAPI.adPage);
                   },
                 ),
 
@@ -294,7 +294,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.sliverEntrancePage);
+                    kRouterDelegate.push(name: RouterPageAPI.sliverEntrancePage);
                   },
                 ),
 
@@ -311,7 +311,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.tabBarPage);
+                    kRouterDelegate.push(name: RouterPageAPI.tabBarPage);
                   },
                 ),
 
@@ -328,7 +328,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.chartPage);
+                    kRouterDelegate.push(name: RouterPageAPI.chartPage);
                   },
                 ),
 
@@ -345,7 +345,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.keFramePage);
+                    kRouterDelegate.push(name: RouterPageAPI.keFramePage);
                   },
                 ),
 
@@ -362,7 +362,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.canvasPage);
+                    kRouterDelegate.push(name: RouterPageAPI.canvasPage);
                   },
                 ),
 
@@ -379,7 +379,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    kFluRouterDelegate.push(name: FluRouterPageAPI.positionAnimationPage);
+                    kRouterDelegate.push(name: RouterPageAPI.positionAnimationPage);
                   },
                 ),
                 // InheritedWidgetPage(
@@ -400,6 +400,24 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                   onTap: (){
                     final game = StickGame();
                     runApp(GameWidget(game: game));
+                  },
+                ),
+
+                InkWell(
+                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      width: MediaQuery.of(context).size.width, height: 60,
+                      child: Text("17.GetWidget组件页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                    ),
+                  ),
+                  onTap: (){
+                    /// bottomSheet组件调试
+                    kRouterDelegate.push(name: RouterPageAPI.bottomSheetPage);
                   },
                 ),
               ],

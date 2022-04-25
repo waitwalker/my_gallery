@@ -361,7 +361,7 @@ class _ADPageState extends State<ADPage> {
                   ),
                 ),
                 onTap: (){
-                  kFluRouterDelegate.push(name: FluRouterPageAPI.adSplashPage);
+                  kRouterDelegate.push(name: RouterPageAPI.adSplashPage);
                 },
               ),
 

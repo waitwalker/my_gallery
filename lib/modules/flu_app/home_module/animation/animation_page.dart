@@ -41,7 +41,7 @@ class _AnimationPageState extends State<AnimationPage> with SingleTickerProvider
       ),
       onTap: (){
         Map<String,String> map = {"image":image};
-        kFluRouterDelegate.push(name: FluRouterPageAPI.heroPage, arguments: map);
+        kRouterDelegate.push(name: RouterPageAPI.heroPage, arguments: map);
       },
     );
   }

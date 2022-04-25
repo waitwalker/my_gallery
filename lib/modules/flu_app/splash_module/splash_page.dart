@@ -15,7 +15,7 @@ class _SplashState extends State<SplashPage> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 2),(){
-      kFluRouterDelegate.replaceLastPage(name: FluRouterPageAPI.bottomNavigationBarPage);
+      kRouterDelegate.replaceLastPage(name: RouterPageAPI.bottomNavigationBarPage);
     });
     super.initState();
   }
@@ -31,7 +31,7 @@ class _SplashState extends State<SplashPage> {
         children: [
           Icon(Icons.account_tree, color: Colors.amber, size: 200,),
           TextButton(onPressed: (){
-            kFluRouterDelegate.replaceLastPage(name: FluRouterPageAPI.bottomNavigationBarPage);
+            kRouterDelegate.replaceLastPage(name: RouterPageAPI.bottomNavigationBarPage);
           }, child: Text("跳到首页"))
         ],
       ),

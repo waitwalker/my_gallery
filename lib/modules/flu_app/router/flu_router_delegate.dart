@@ -8,6 +8,7 @@ import 'package:my_gallery/modules/flu_app/entrance/flu_bottom_navigation_bar_pa
 import 'package:my_gallery/modules/flu_app/home_module/animation/animation_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/animation/hero_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/animation/position_animation.dart';
+import 'package:my_gallery/modules/flu_app/home_module/bottom_sheet_page/bottom_sheet_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/canvas/canvas_entrance_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_1_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/canvas/paint_2_page.dart';
@@ -43,9 +44,9 @@ import 'package:my_gallery/modules/flu_app/splash_module/splash_page.dart';
 import 'package:my_gallery/modules/flu_app/tabbar/tabbar_page.dart';
 import 'flu_router_page_api.dart';
 
-/// FluRouterDelegate继承自RouterDelegate，并混入ChangeNotifier和PopNavigatorRouterDelegateMixin
+/// NativeRouterDelegate，并混入ChangeNotifier和PopNavigatorRouterDelegateMixin， 这个delegate是flutter原生的不是第三方组件的
 /// 有三个必须实现的方法
-class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeNotifier, PopNavigatorRouterDelegateMixin {
+class NativeRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeNotifier, PopNavigatorRouterDelegateMixin {
 
   /// 路由配置页面列表
   final List<Page> _pages = [];
@@ -171,106 +172,109 @@ class FluRouterDelegate extends RouterDelegate<List<RouteSettings>> with ChangeN
   MaterialPage _createPage(RouteSettings routeSettings) {
     Widget childPage;
     switch (routeSettings.name){
-      case FluRouterPageAPI.bottomNavigationBarPage:
+      case RouterPageAPI.bottomNavigationBarPage:
         childPage = const FluBottomNavigationBarPage();
         break;
-      case FluRouterPageAPI.homePage:
+      case RouterPageAPI.homePage:
         childPage = const HomePage();
         break;
-      case FluRouterPageAPI.isolatePage:
+      case RouterPageAPI.isolatePage:
         childPage = const IsolatePage();
         break;
-      case FluRouterPageAPI.platformViewPage:
+      case RouterPageAPI.platformViewPage:
         childPage = PlatformViewPage();
         break;
-      case FluRouterPageAPI.notificationPage:
+      case RouterPageAPI.notificationPage:
         childPage = NotificationPage();
         break;
-      case FluRouterPageAPI.mixinPage:
+      case RouterPageAPI.mixinPage:
         childPage = MixinPage();
         break;
-      case FluRouterPageAPI.animationPage:
+      case RouterPageAPI.animationPage:
         childPage = AnimationPage();
         break;
-      case FluRouterPageAPI.heroPage:
+      case RouterPageAPI.heroPage:
         childPage = HeroPage(arguments: routeSettings.arguments as Map<String, String>,);
         break;
-      case FluRouterPageAPI.eventPenetrationPage:
+      case RouterPageAPI.eventPenetrationPage:
         childPage = const EventPenetrationPage();
         break;
-      case FluRouterPageAPI.positionAnimationPage:
+      case RouterPageAPI.positionAnimationPage:
         childPage = PositionAnimationPage();
         break;
-      case FluRouterPageAPI.adPage:
+      case RouterPageAPI.adPage:
         childPage = ADPage();
         break;
-      case FluRouterPageAPI.adSplashPage:
+      case RouterPageAPI.adSplashPage:
         childPage = AdSplashPage();
         break;
-      case FluRouterPageAPI.sliverEntrancePage:
+      case RouterPageAPI.sliverEntrancePage:
         childPage = SliverEntrancePage();
         break;
-      case FluRouterPageAPI.sliverListPage:
+      case RouterPageAPI.sliverListPage:
         childPage = SliverListPage();
         break;
-      case FluRouterPageAPI.sliverAppBarPage:
+      case RouterPageAPI.sliverAppBarPage:
         childPage = SliverAppBarPage();
         break;
-      case FluRouterPageAPI.sliverStickyPage:
+      case RouterPageAPI.sliverStickyPage:
         childPage = SliverStickyPage();
         break;
-      case FluRouterPageAPI.sliverCustomHeaderPage:
+      case RouterPageAPI.sliverCustomHeaderPage:
         childPage = SliverCustomHeaderPage();
         break;
-      case FluRouterPageAPI.meituanShopPage:
+      case RouterPageAPI.meituanShopPage:
         childPage = const ComplexityScrollViewPage();
         break;
-      case FluRouterPageAPI.tabBarPage:
+      case RouterPageAPI.tabBarPage:
         childPage = TabBarPage();
         break;
-      case FluRouterPageAPI.orderPage:
+      case RouterPageAPI.bottomSheetPage:
+        childPage = BottomSheetPage();
+        break;
+      case RouterPageAPI.orderPage:
         childPage = const OrderPage();
         break;
-      case FluRouterPageAPI.keFramePage:
+      case RouterPageAPI.keFramePage:
         childPage = KeFrameListViewPage();
         break;
-      case FluRouterPageAPI.canvasPage:
+      case RouterPageAPI.canvasPage:
         childPage = CanvasEntrancePage();
         break;
-      case FluRouterPageAPI.paint1Page:
+      case RouterPageAPI.paint1Page:
         childPage = Paint1Page();
         break;
-      case FluRouterPageAPI.paint2Page:
+      case RouterPageAPI.paint2Page:
         childPage = Paint2Page();
         break;
-      case FluRouterPageAPI.paint3Page:
+      case RouterPageAPI.paint3Page:
         childPage = Paint3Page();
         break;
-      case FluRouterPageAPI.paint4Page:
+      case RouterPageAPI.paint4Page:
         childPage = Paint4Page();
         break;
-      case FluRouterPageAPI.paint5Page:
+      case RouterPageAPI.paint5Page:
         childPage = Paint5Page();
         break;
-      case FluRouterPageAPI.paint6Page:
+      case RouterPageAPI.paint6Page:
         childPage = Paint6Page();
         break;
-      case FluRouterPageAPI.paint7Page:
+      case RouterPageAPI.paint7Page:
         childPage = Paint7Page();
         break;
-      case FluRouterPageAPI.chartPage:
+      case RouterPageAPI.chartPage:
         childPage = ChartPage();
         break;
-      case FluRouterPageAPI.splashPage:
+      case RouterPageAPI.splashPage:
         childPage = SplashPage();
         break;
-      case FluRouterPageAPI.contactPage:
+      case RouterPageAPI.contactPage:
         childPage = ContactPage();
         break;
-      case FluRouterPageAPI.chatPage:
+      case RouterPageAPI.chatPage:
         childPage = ChatPage(routeSettings.arguments as Map<String, String>);
         break;
-      case FluRouterPageAPI.personalPage:
+      case RouterPageAPI.personalPage:
         childPage = PersonalPage();
         break;
       //  腾讯登录页面

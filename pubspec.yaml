@@ -63,6 +63,9 @@ dependencies:
   # 游戏引擎
   flame: ^1.1.0
 
+  # 第三方组件库
+  getwidget: ^2.0.5
+
 
 
 dev_dependencies:

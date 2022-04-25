@@ -35,7 +35,7 @@ class _SliverEntrancePageState extends State<SliverEntrancePage> {
                   ),
                 ),
                 onTap: (){
-                  kFluRouterDelegate.push(name: FluRouterPageAPI.sliverListPage);
+                  kRouterDelegate.push(name: RouterPageAPI.sliverListPage);
                 },
               ),
               InkWell(
@@ -51,7 +51,7 @@ class _SliverEntrancePageState extends State<SliverEntrancePage> {
                   ),
                 ),
                 onTap: (){
-                  kFluRouterDelegate.push(name: FluRouterPageAPI.sliverAppBarPage);
+                  kRouterDelegate.push(name: RouterPageAPI.sliverAppBarPage);
                 },
               ),
               InkWell(
@@ -67,7 +67,7 @@ class _SliverEntrancePageState extends State<SliverEntrancePage> {
                   ),
                 ),
                 onTap: (){
-                  kFluRouterDelegate.push(name: FluRouterPageAPI.sliverStickyPage);
+                  kRouterDelegate.push(name: RouterPageAPI.sliverStickyPage);
                 },
               ),
               InkWell(
@@ -83,7 +83,7 @@ class _SliverEntrancePageState extends State<SliverEntrancePage> {
                   ),
                 ),
                 onTap: (){
-                  kFluRouterDelegate.push(name: FluRouterPageAPI.sliverCustomHeaderPage);
+                  kRouterDelegate.push(name: RouterPageAPI.sliverCustomHeaderPage);
                 },
               ),
               InkWell(
@@ -99,7 +99,7 @@ class _SliverEntrancePageState extends State<SliverEntrancePage> {
                   ),
                 ),
                 onTap: (){
-                  kFluRouterDelegate.push(name: FluRouterPageAPI.meituanShopPage);
+                  kRouterDelegate.push(name: RouterPageAPI.meituanShopPage);
                 },
               ),
             ],
