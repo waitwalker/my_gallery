@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flame/game.dart';
+import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
 import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 
@@ -65,4 +68,110 @@ class CustomGame extends FlameGame {
   }
 
 
+}
+
+
+class TargetComponent {
+  final Vector2 position;
+  final Vector2 originPosition;
+  final double radius;
+  late Paint paint = Paint()..color = Colors.greenAccent;
+  late Path path = Path()..addOval(Rect.fromLTWH(position.x - radius, position.y - radius, radius * 2, radius *2));
+  TargetComponent({required this.position, this.radius = 20}) : originPosition = Vector2(position.x, position.y);
+
+  void render(Canvas canvas){
+    canvas.drawCircle(position.toOffset(), radius, paint);
+  }
+
+  void onDragUpdate(int pointerId, DragUpdateInfo info) {
+    var eventPosition = info.eventPosition.game;
+    position.setValues(eventPosition.x, eventPosition.y);
+    _updatePath();
+  }
+
+  void resetPosition() {
+    position.setValues(originPosition.x, originPosition.y);
+    _updatePath();
+  }
+
+  void _updatePath() {
+    path.reset();
+    path.addOval(Rect.fromLTWH(position.x - radius, position.y - radius, radius * 2, radius * 2));
+  }
+
+}
+
+class BulletComponent {
+  final Vector2 position;
+  final double speed;
+  final double angle;
+  final double radius;
+  late Paint paint = Paint()..color = Colors.orangeAccent;
+  late Path path = Path()..addOval(Rect.fromLTWH(position.x - radius, position.y - radius, radius * 2, radius * 2));
+  BulletComponent({required this.position, this.speed = 5, this.angle = 0, this.radius = 10});
+
+  void render(Canvas canvas) {
+    canvas.drawCircle(position.toOffset(), radius, paint);
+  }
+
+  void update(double dt) {
+    position.setValues(position.x - cos(angle) * speed, position.y - sin(angle) * speed);
+    path.reset();
+    path.addOval(Rect.fromLTWH(position.x - radius, position.y - radius, radius * 2, radius * 2));
+  }
+}
+
+class StickGame extends FlameGame with HasDraggables{
+  late TargetComponent target;
+
+  bool isDrag = false;
+
+
+  @override
+  onDragStart(int pointerId, DragStartInfo info){
+    super.onDragStart(pointerId, info);
+    if (target.path.contains(info.eventPosition.game.toOffset())) {
+      isDrag = true;
+    }
+  }
+
+  @override
+  void onDragUpdate(int pointerId, DragUpdateInfo info) {
+    super.onDragUpdate(pointerId, info);
+    var eventPosition = info.eventPosition.game;
+    if (eventPosition.x < target.radius ||
+        eventPosition.x > canvasSize.x - target.radius ||
+        eventPosition.y < target.radius ||
+        eventPosition.y > canvasSize.y - target.radius) {
+      return;
+    }
+
+    if (isDrag) {
+      target.onDragUpdate(pointerId, info);
+    }
+  }
+
+  @override
+  void onDragCancel(int pointerId) {
+    super.onDragCancel(pointerId);
+    isDrag = false;
+  }
+
+  @override
+  void onDragEnd(int pointerId, DragEndInfo info) {
+    super.onDragEnd(pointerId, info);
+    isDrag = false;
+  }
+
+  @override
+  Future<void>? onLoad() {
+    target = TargetComponent(position: Vector2(canvasSize.x/2, canvasSize.y/2));
+    return super.onLoad();
+  }
+
+  @override
+  void render(Canvas canvas) {
+    target.render(canvas);
+    super.render(canvas);
+  }
 }
