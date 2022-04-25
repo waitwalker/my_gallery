@@ -398,7 +398,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                     ),
                   ),
                   onTap: (){
-                    final game = CustomGame();
+                    final game = StickGame();
                     runApp(GameWidget(game: game));
                   },
                 ),
