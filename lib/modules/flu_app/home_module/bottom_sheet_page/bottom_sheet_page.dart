@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:my_gallery/modules/flu_app/config/img.dart';
 
 class BottomSheetPage extends StatefulWidget {
   const BottomSheetPage({Key? key}) : super(key: key);
