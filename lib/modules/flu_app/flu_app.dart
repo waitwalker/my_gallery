@@ -25,10 +25,6 @@ class FluApp extends StatefulWidget {
 class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
 
 
-  @override
-  void didHaveMemoryPressure() {
-    super.didHaveMemoryPressure();
-  }
 
 
   @override
