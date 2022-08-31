@@ -62,6 +62,7 @@ dependencies:
   bruno: ^2.1.1
   # 游戏引擎
   flame: ^1.1.0
+  dio: ^4.0.4
 
   # 第三方组件库
   getwidget: ^2.0.5
