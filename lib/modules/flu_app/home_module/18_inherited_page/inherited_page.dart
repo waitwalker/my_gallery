@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:my_gallery/modules/flu_app/home_module/provider/info_widget.dart';
+import 'package:my_gallery/modules/flu_app/home_module/18_inherited_page/info_widget.dart';
 
 class InheritedPage extends StatefulWidget {
   const InheritedPage({Key? key}) : super(key: key);

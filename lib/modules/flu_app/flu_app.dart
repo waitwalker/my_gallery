@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_gallery/modules/flu_app/common/deep_links/deep_links_manager.dart';
 import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
+import 'package:my_gallery/modules/flu_app/home_module/19_provider/num_model.dart';
 import 'package:my_gallery/modules/flu_app/home_module/animation/position_animation_view_model.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/personal/personal_change_notifier.dart';
@@ -51,6 +52,7 @@ class _FluAppState extends State<FluApp> with WidgetsBindingObserver{
         ChangeNotifierProvider(create: (context) => PersonalChangeNotifier()),
         ChangeNotifierProvider(create: (context) => PositionAnimationViewModel()),
         ChangeNotifierProvider(create: (context) => NavigatorViewModel()),
+        ChangeNotifierProvider(create: (context)=>NumModel()),
       ],
       child: MaterialApp.router(
         routeInformationParser: FluRouteInformationParser(),
