@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class HeroPage extends StatefulWidget {
   String? image;
-  HeroPage({required Map<String,String> arguments, this.image}) {
+  HeroPage({Key? key, required Map<String,String> arguments, this.image}) : super(key: key) {
     image = arguments["image"];
   }
 

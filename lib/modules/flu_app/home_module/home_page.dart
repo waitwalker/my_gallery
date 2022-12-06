@@ -2,6 +2,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:my_gallery/modules/flu_app/config/k_printer.dart';
 import 'package:my_gallery/modules/flu_app/game/custom_game.dart';
+import 'package:my_gallery/modules/flu_app/home_module/12_inherited_page/inherited_page.dart';
 import 'package:my_gallery/modules/flu_app/home_module/home_change_notifier.dart';
 import 'package:my_gallery/modules/flu_app/router/flu_router_page_api.dart';
 import 'package:my_gallery/modules/flu_app/router/navigator_view_model.dart';
@@ -418,6 +419,26 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                   onTap: (){
                     /// bottomSheet组件调试
                     kRouterDelegate.push(name: RouterPageAPI.bottomSheetPage);
+                  },
+                ),
+
+                InkWell(
+                  child: Padding(padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      width: MediaQuery.of(context).size.width, height: 60,
+                      child: Text("18.InheritedWidget页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                    ),
+                  ),
+                  onTap: (){
+
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return InheritedPage();
+                    }));
                   },
                 ),
               ],

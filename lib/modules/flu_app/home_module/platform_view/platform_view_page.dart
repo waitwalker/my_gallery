@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class PlatformViewPage extends StatefulWidget {
+  const PlatformViewPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _PlatformViewPageState();
