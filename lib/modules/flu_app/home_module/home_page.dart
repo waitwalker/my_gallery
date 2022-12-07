@@ -452,7 +452,7 @@ class _HomePageState extends State<HomePage> with RouteAware, WidgetsBindingObse
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: MediaQuery.of(context).size.width, height: 60,
-                      child: Text("19.InheritedWidget页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
+                      child: Text("19.Provider页面", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),),
                     ),
                   ),
                   onTap: (){
